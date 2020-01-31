@@ -1,1 +1,161 @@
 // 奥本さん担当
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+h1 {
+  display: inline-block;
+  padding-top: 40px;
+}
+
+h2.inner-head {
+  padding: 32px 16px;
+  text-align: center;
+  font-size: 22px;
+  color: #333;
+  border-bottom: 1px solid #EEE;
+  font-weight: bold;
+}
+h3.upload-head {
+  font-size: 16px;
+}
+
+h3.sub-head{ 
+  font-size: 14px; 
+  float: left;
+  display: block;
+  color: #888;
+  font-weight: bold;
+  width: 150px;
+}
+p.upload-box-desc {
+  font-size: 14px;
+  margin: 8px 0 0;
+  line-height: 1.5;
+  display: block;
+}
+p.input-title {
+  font-size: 14px;
+}
+p2.input-title {
+  font-size: 14px;
+  line-height: 65px;
+}
+
+.sell-header-text {
+  color: black;
+  font-size: 35px;
+  font-family: sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.textarea-default {
+  height: 142px;
+  margin: 8px 0 0;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 104px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+.input-default {
+  display: block;
+  width: 100%;
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.price-cost-info {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  &__input-price {
+    font-size: 16px;
+    width: 40%;
+    height: 48px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 10px 16px 8px;
+    text-align: right;
+  }
+  &__handling-cost {
+    font-size: 16px;
+    height: 48px;
+    border-style: None;
+    padding-top: 10px;//あとで修正
+    text-align: right;
+  }
+  &__total-profit {
+    height: 48px;
+    border-style: None;
+    padding-top: 30px; //あとで修正
+    text-align: right;
+  }
+}
+
+
+.sell-container {
+  padding :0;
+  margin: 0;
+  width: 100vw;
+  background-color: #EEEEEE;
+  &__header {
+    height :128px;
+    text-align: center;
+  }
+  &__main {
+    &__inner {
+      width: 700px;
+      margin: 0 auto;
+      background-color: white;
+      &__form-all {
+        height: 1919px; //あとで消す
+        &__upload-box {
+          width: 620px;
+          padding: 40px;
+          border-bottom: 1px solid #EEE;
+          .dropbox-area {
+            width: 620px;
+            background-color: #f5f5f5;
+            height: 162px;
+            margin: 16px 0 auto;
+            &__text-first {
+              text-align: center;
+              padding: 40px;
+            }
+          }
+        }
+        .sell-content {
+          padding: 40px;
+          border-bottom: 1px solid #EEE;
+          .select-default { width: 100%; }
+          .sell-form-box { width: 400px; float: right;}
+          .form-group1 { width: 100%; }
+          .form-group2 { margin-top: 40px; }
+        }
+      }
+    }
+  }
+  &__footer {
+    height :220px;
+    padding: 40px, 0;
+    text-align: center;
+    border: 1px solid;
+  }
+}
