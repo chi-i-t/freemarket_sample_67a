@@ -1,1 +1,84 @@
 -# 高橋さん担当
+%header ヘッダー
+
+.main
+  .main__box
+    .item-name
+      ああああああああああ
+
+    .item-main-content
+      .item-main-content__photo
+        %img.item-main-content__photo--main{src:'#'}
+        .item-main-content__photo--others
+          %img.photo-small{src:'#'}
+          %img.photo-small{src:'#'}
+          %img.photo-small{src:'#'}
+          %img.photo-small{src:'#'}
+          %img.photo-small{src:'#'}
+        
+      %table.item-main-content__table
+        %tbody
+          %tr
+            %th 出品者
+            %td
+              = link_to 'ニックネーム', '＃'
+          %tr
+            %th カテゴリー
+            %td
+              = link_to 'メンズ', '#'
+              %br/
+              %i.fa.fa-angle-right
+              = link_to 'ジャケット/アウター', '#'
+              %br/
+              %i.fa.fa-angle-right
+              = link_to 'ノーカラージャケット', '#'
+
+          %tr
+            %th ブランド
+            %td
+              = link_to 'ブランド', '#'
+          %tr
+            %th 商品の状態
+            %td 未使用に近い
+          %tr
+            %th 配送料の負担
+            %td 送料込み(出品者負担)
+          %tr
+            %th 配送元地域
+            %td
+              = link_to '東京都', '#'
+          %tr
+            %th 発送日の目安
+            %td 2~3日で発送
+
+    .item-price-box
+      .item-price-box__price
+        ¥2,500
+      .item-price-box__tax
+        (税込)
+      .item-price-box__shipping-fee
+        送料込み
+    = link_to '購入画面に進む', '#', class:'buy_btn'
+
+    .item-description 
+      .item-description__box
+        ウール100%のボレロです。ああああああああああああああああああああああああああああああああああああざああああああああああああああああああああああ
+       
+  .main__comment
+    .comment__message
+      相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    .comment__box
+      %textarea.comment__box--text{type: "text"}
+      = link_to 'コメントする', '#', class:'coment_btn'
+
+  %ul.main__links
+    %li
+      = link_to '#' do
+        %i.fa.fa-angle-left
+        前の商品
+    %li
+      = link_to '#' do
+        後ろの商品
+        %i.fa.fa-angle-right
+
+%footer
