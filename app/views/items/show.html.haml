@@ -1,8 +1,30 @@
 -# 高橋さん担当
-%header ヘッダー
+.header
+  .header__inner
+    .main
+      .main__icon
+        = link_to "#" do
+          = image_tag 'logo.png', class: 'main__icon__image'
+      .main__searchBox
+        %input.main__searchBox--input{name: "key", placeholder: "キーワードから探す"}
+        %button.main__searchBox__submit{type: "submit"}
+          = icon("fas", "search", class:"main__searchBox__submit--icon") 
+    .naviLists
+      .naviLists__Left
+        .naviLists__Left--category
+          カテゴリー
+        .naviLists__Left--brand
+          ブランド
+      .naviLists__Right
+        .naviLists__Right--login
+          = link_to "#", class:"link" do
+            ログイン
+        .naviLists__Right--new
+          = link_to "#", class:"link" do
+            新規会員登録
 
-.main
-  .main__box
+.main-content
+  .main-content__box
     .item-name
       ああああああああああ
 
@@ -64,14 +86,14 @@
       .item-description__box
         ウール100%のボレロです。ああああああああああああああああああああああああああああああああああああざああああああああああああああああああああああ
        
-  .main__comment
+  .main-content__comment
     .comment__message
       相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
     .comment__box
       %textarea.comment__box--text{type: "text"}
       = link_to 'コメントする', '#', class:'coment_btn'
 
-  %ul.main__links
+  %ul.main-content__links
     %li
       = link_to '#' do
         %i.fa.fa-angle-left
@@ -81,4 +103,64 @@
         後ろの商品
         %i.fa.fa-angle-right
 
-%footer
+.appBanner
+  .appBanner__inner
+    .appBanner__inner--title
+      だれでもかんたん、人生を変えるフリマアプリ
+    .appBanner__inner--text
+      今すぐ無料ダウンロード！
+    .appBanner__inner--icon
+      = link_to "#", class:"storeLink" do
+        .appBanner__inner--icon--apple
+          = image_tag 'Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg', class: "storeIcon--a"
+      = link_to "#", class:"storeLink" do
+        .appBanner__inner--icon--google
+          = image_tag 'google-play-badge (1).png', class: "storeIcon--g"
+.footer
+  .footer__contents
+    .footer__contents__box
+      .footer__contents__box--head
+        FURIMAについて
+      .footer__contents__box--list
+        = link_to "#", class: "linkFooter" do
+          会社概要(運営会社)
+      .footer__contents__box--list
+        = link_to "#", class: "linkFooter" do
+          プライバシーポリシー
+      .footer__contents__box--list
+        = link_to "#", class: "linkFooter" do
+          FURIMA利用規約
+      .footer__contents__box--list
+        = link_to "#", class: "linkFooter" do
+          ポイントに関する特約
+    .footer__contents__box
+      .footer__contents__box--head
+        FURIMAを見る
+      .footer__contents__box--list
+        = link_to "#", class: "linkFooter" do
+          カテゴリー一覧
+      .footer__contents__box--list
+        = link_to "#", class: "linkFooter" do
+          ブランド一覧
+    .footer__contents__box
+      .footer__contents__box--head
+        ヘルプ&ガイド
+      .footer__contents__box--list
+        = link_to "#", class: "linkFooter" do
+          FURIMAガイド
+      .footer__contents__box--list
+        = link_to "#", class: "linkFooter" do
+          FURIMAロゴ利用ガイドライン
+      .footer__contents__box--list
+        = link_to "#", class: "linkFooter" do
+          お知らせ
+  .footer__logo
+    = link_to "#", class:"link" do
+      = image_tag 'logo-white.png', class:"footer__logo--img"
+  .footer__copy
+    © FURIMA
+= link_to "#", class:"link" do
+  .purchaseBtn
+    .purchaseBtn__text
+      出品する
+      = image_tag 'icon_camera.png', class: "purchaseBtn__img"

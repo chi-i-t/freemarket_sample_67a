@@ -9,44 +9,84 @@ html, body{
   width:100%;
   height:100%;
 }
-body {
-height: 100%;
-width: 100%;
-
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-body {
-margin: 0;
-padding: 0;
-}
-
 // 以上リセット終了
 
-body{
-  position: relative;
-  background-color: #f8f8f8;
+.header{
+  padding-left: 60px;
+  padding-right: 60px;
+  height: 110px;
+  width: auto;
+  &__inner{
+    padding-top: 15px;
+    margin-right: 140px;
+    margin-left: 140px;
+    max-width: 1040px;
+    width: 1040px;
+    height: calc(100% - 15px);
+  }
 }
 
-header{
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100px;
-  border-bottom: 1px solid black;
-}
 .main{
+  display: flex;
+  align-items: center;
+  height: 50px;
+  &__icon{
+    margin-right: 30px;
+    &__image{
+      width: 140px; 
+    }
+  }
+  &__searchBox{
+    width: 100%;
+    height: 40px;
+    &--input{
+      height: 34px;
+      padding-left: 5px;
+      width: calc(100% - 55px);
+    }
+    &__submit{
+      background-color: rgb(60, 202, 206);
+      height: 38px;
+      width: 38px;
+      padding: 0;
+      border: 0;
+      &--icon{
+        color: white;
+        font-size: 20px;
+    }
+    }
+
+  }
+}
+
+.naviLists{
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  height: 32px;
+  margin-top: 10px;
+  &__Left{
+    display: flex;
+    &--category{
+      margin-right: 45px;
+    }
+    &--brand{
+
+    }
+  }
+  &__Right{
+    display: flex;
+    &--login{
+      margin-right: 15px;
+    }
+  }
+}
+
+.main-content{
   width: 100%;
-  height: 1000px;
-  position: absolute;
-  top: 100px;
+  background-repeat: no-repeat;
   background-color: #f8f8f8;
+  padding-top: 20px;
   &__box{
     width: 50%;
     height: 100%;
@@ -180,7 +220,7 @@ header{
   &__links{
     width: 50%;
     margin: auto;
-    height: 50px;
+    height: 100px;
     display: flex;
     justify-content: space-between;
     padding-right: 40px;
@@ -196,3 +236,124 @@ a,i {
 li{
   list-style: none;
 }
+
+.appBanner{
+  background-image: url(bg-appBanner-pict.jpg);
+  background-size: cover;
+  background-position: center;
+  width: auto;
+  height: 300px;
+  padding: 100px 40px;
+  &__inner{
+    text-align: center;
+    color: #fff;
+    &--title{
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-size: 24px;
+      font-weight: bold;
+    }
+    &--text{
+      font-size: 35px;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    }
+    &--icon{
+      width: 100%;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      &--apple{
+        width: 135px;
+        height: 40px;
+        margin-top: 24px;
+      }
+      &--google{
+        width: 155px;
+        height: 60px;
+        margin-top: 14px;
+      }
+    }
+  }
+}
+
+.footer{
+  padding: 60px 0;
+  color: #fff;
+  background-color: #272727;
+  text-align: center;
+  width: auto;
+  &__contents{
+    display: flex;
+    justify-content: center;
+    width: 840px;
+    margin: 0 auto;
+    &__box{
+      width: calc(1 / 3 * 100%);
+      margin: 0 2% 0 0;
+      &--head{
+        font-size: 16px;
+        font-weight: bold;
+        margin: 0 0 20px;
+      }
+      &--list{
+        text-decoration: none;
+        color: #fff;
+        line-height: 32px;
+        font-size: 12px;
+      }
+    }
+  }
+  &__logo{
+    &--img{
+      width: 160px;
+      margin: 0 auto;
+      vertical-align: bottom;
+    }
+  }
+  &__copy{
+    font-size: 14px;
+
+  }
+}
+
+.linkFooter{
+  text-decoration: none;
+  color: #fff;
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
+
+.storeIcon--a{
+  width: 135px;
+  height: 40px;
+}
+.storeIcon--g{
+  width: 155px;
+  height: 60px;
+}
+
+.storeLink:hover{
+  opacity: 0.5;
+}
+
+.purchaseBtn{
+  width: 120px;
+  background: #3CCACE;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
+  padding: 15px;
+  &__text{
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    text-decoration: none;
+    margin-bottom: 5px;
+  }
+  &__img{
+    width: 60%;
+  }
+} 
