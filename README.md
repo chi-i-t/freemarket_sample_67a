@@ -18,8 +18,8 @@
 
 ### Association
 - has_many :items
-- belongs_to :adress
-- belongs_to :shipping_address
+- has_one :address
+- has_one :shipping_address
 
 
 ## addressesテーブル
