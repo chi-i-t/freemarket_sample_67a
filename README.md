@@ -13,7 +13,7 @@
 |password|string|null: false|
 |bithday|string|null: false|
 |phone_number|string||
-|address_id|reference|foreign_key: true|
+|address_id|reference|null: false,foreign_key: true|
 |shipping_address_id|reference|null: false,foreign_key: true|
 
 ### Association
@@ -25,10 +25,10 @@
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|postal_code|string｜|
-|prefectures|string||
-|city|string||
-|adress_number|string||
+|postal_code|string｜null: false|
+|prefectures|string|null: false|
+|city|string|null: false|
+|adress_number|string|null: false|
 |building_name|string||
 
 ### Association
@@ -62,6 +62,7 @@
 |description|text|null: false|
 |price|integer|null: false|
 |business_result|integer||
+|status|string|null: false|
 |user_id|reference|null: false,foreign_key: true|
 |category_id|reference|null: false,foreign_key: true|
 |brand_id|reference|foreign_key: true|
@@ -73,7 +74,6 @@
 - belongs_to :user
 - belongs_to :category
 - belongs_to :brand
-- belongs_to :item_status
 - belongs_to :delivery_style
 - has_many :images
 
@@ -89,15 +89,6 @@
 
 
 ## brandsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string||
-
-### Association
-- has_many :items
-
-
-## item_statusesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
