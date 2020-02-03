@@ -13,8 +13,6 @@
 |password|string|null: false|
 |bithday|string|null: false|
 |phone_number|string||
-|address_id|reference|null: false,foreign_key: true|
-|shipping_address_id|reference|null: false,foreign_key: true|
 
 ### Association
 - has_many :items
@@ -28,12 +26,12 @@
 |postal_code|string｜null: false|
 |prefectures|string|null: false|
 |city|string|null: false|
-|adress_number|string|null: false|
+|address_number|string|null: false|
 |building_name|string||
+|user_id|reference|null: false,foreign_key: true|
 
 ### Association
 - belongs_to :user
-
 
 
 ## shipping_addressesテーブル
@@ -49,10 +47,10 @@
 |adress_number|string|null: false|
 |building_name|string||
 |phone_number|string||
+|user_id|reference|null: false,foreign_key: true|
 
 ### Association
 - belongs_to :user
-
 
 
 ## itemsテーブル
@@ -65,8 +63,7 @@
 |status|string|null: false|
 |user_id|reference|null: false,foreign_key: true|
 |category_id|reference|null: false,foreign_key: true|
-|brand_id|reference|foreign_key: true|
-|item_status_id|reference|null: false,foreign_key: true|
+|brand_id|reference|null: false,foreign_key: true|
 |delivery_style_id|reference|null: false,foreign_key: true|
 |buyer_id|integer||
 
@@ -76,6 +73,16 @@
 - belongs_to :brand
 - belongs_to :delivery_style
 - has_many :images
+
+
+## categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|ancestry|string||
+
+### Association
+- has_many :items
 
 
 ## imagesテーブル
