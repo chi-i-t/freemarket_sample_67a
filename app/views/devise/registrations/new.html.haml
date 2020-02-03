@@ -1,0 +1,32 @@
+
+
+
+
+.account-page
+  .account__header
+    = link_to image_tag("logo.png", class: "account__header__test-image"),"#"
+  .account__center
+    .account__center__title
+      新規会員登録
+    .account__center__url
+      = link_to "#", class: "account__center__url--envelope" do
+        .account__center__url--btn_mail
+          = icon('far', 'envelope')
+          メールアドレスで登録する
+      = link_to "#", class: "account__center__url--facebook" do
+        .account__center__url--btn_facebook
+          = icon('fab', 'facebook-square')
+          Facebookで登録する
+      = link_to "#", class: "account__center__url--google" do
+        .account__center__url--btn_google
+          = icon('fab', 'google')
+          Googleで登録する
+  .account__footer
+    .account__footer--top
+      = link_to "プライバシーポリシー" , "#", class: "account__footer--top--1"
+      = link_to "FURIMA利用規約" , "#", class: "account__footer--top--2"
+      = link_to "特定商取引に関する表記" , "#", class: "account__footer--top--3"
+    .account__footer--logo
+      = link_to image_tag("logo-white.png", class: "account__footer--logo--test1-image"),"#"
+    .account__footer--name
+      © FURIMA, Inc.
