@@ -13,6 +13,8 @@
 |password|string|null: false|
 |bithday|string|null: false|
 |phone_number|string||
+|address_id|reference|foreign_key: true|
+|shipping_address_id|reference|null: false,foreign_key: true|
 
 ### Association
 - has_many :items
@@ -20,7 +22,7 @@
 - belongs_to :shipping_address
 
 
-##  addressesテーブル
+## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |postal_code|string｜|
@@ -34,7 +36,7 @@
 
 
 
-## shipping_adressesテーブル
+## shipping_addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |family_name|string|null: false|
