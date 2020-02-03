@@ -4,29 +4,53 @@
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|family_name|string|null: false|
+|first_name|string|null: false|
+|family_name_kana|string|null: false|
+|first_name_kana|string|null: false|
+|nickname|string|null: false|
 |email|string|null: false|
 |password|string|null: false|
 |bithday|string|null: false|
-|shipping_address|string||
-|phone_number|string|null: false|
+|phone_number|string||
 
 ### Association
 - has_many :items
 - belongs_to :adress
+- belongs_to :shipping_address
 
 
-## adressesテーブル
+##  addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
+|postal_code|string｜|
+|prefectures|string||
+|city|string||
+|adress_number|string||
+|building_name|string||
+
+### Association
+- belongs_to :user
+
+
+
+## shipping_adressesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|family_name|string|null: false|
+|first_name|string|null: false|
+|family_name_kana|string|null: false|
+|first_name_kana|string|null: false|
 |postal_code|string｜null: false|
 |prefectures|string|null: false|
 |city|string|null: false|
 |adress_number|string|null: false|
-|building_name|string|null: false|
+|building_name|string||
+|phone_number|string||
 
 ### Association
 - belongs_to :user
+
 
 
 ## itemsテーブル
@@ -35,11 +59,13 @@
 |name|string|null: false|
 |description|text|null: false|
 |price|integer|null: false|
+|business_result|integer||
 |user_id|reference|null: false,foreign_key: true|
 |category_id|reference|null: false,foreign_key: true|
-|brand_id|reference|null: false,foreign_key: true|
+|brand_id|reference|foreign_key: true|
 |item_status_id|reference|null: false,foreign_key: true|
 |delivery_style_id|reference|null: false,foreign_key: true|
+|buyer_id|integer||
 
 ### Association
 - belongs_to :user
@@ -81,7 +107,9 @@
 ## delivery_stylesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|postage|string|null: false|
+|area|string|null: false|
+|days|string|null: false|
 
 ### Association
 - has_many :items
