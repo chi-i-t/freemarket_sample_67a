@@ -2,7 +2,7 @@
   .header__inner
     .main
       .main__icon
-        = link_to "#" do
+        = link_to root_path do
           = image_tag 'logo.png', class: 'main__icon__image'
       .main__searchBox
         %input.main__searchBox--input{name: "key", placeholder: "キーワードから探す"}
@@ -187,38 +187,29 @@
       .footer__contents__box--head
         FURIMAについて
       .footer__contents__box--list
-        = link_to "#", class: "linkFooter" do
-          会社概要(運営会社)
+        = link_to "会社概要(運営会社)","#", class: "linkFooter"
       .footer__contents__box--list
-        = link_to "#", class: "linkFooter" do
-          プライバシーポリシー
+        = link_to "プライバシーポリシー", "#", class: "linkFooter"
       .footer__contents__box--list
-        = link_to "#", class: "linkFooter" do
-          FURIMA利用規約
+        = link_to "FURIMA利用規約", "#", class: "linkFooter"
       .footer__contents__box--list
-        = link_to "#", class: "linkFooter" do
-          ポイントに関する特約
+        = link_to "ポイントに関する特約", "#", class: "linkFooter"
     .footer__contents__box
       .footer__contents__box--head
         FURIMAを見る
       .footer__contents__box--list
-        = link_to "#", class: "linkFooter" do
-          カテゴリー一覧
+        = link_to "カテゴリー一覧", "#", class: "linkFooter"
       .footer__contents__box--list
-        = link_to "#", class: "linkFooter" do
-          ブランド一覧
+        = link_to "ブランド一覧", "#", class: "linkFooter"
     .footer__contents__box
       .footer__contents__box--head
         ヘルプ&ガイド
       .footer__contents__box--list
-        = link_to "#", class: "linkFooter" do
-          FURIMAガイド
+        = link_to "FURIMAガイド", "#", class: "linkFooter"
       .footer__contents__box--list
-        = link_to "#", class: "linkFooter" do
-          FURIMAロゴ利用ガイドライン
+        = link_to "FURIMAロゴ利用ガイドライン", "#", class: "linkFooter"
       .footer__contents__box--list
-        = link_to "#", class: "linkFooter" do
-          お知らせ
+        = link_to "お知らせ", "#", class: "linkFooter"
   .footer__logo
     = link_to "#", class:"link" do
       = image_tag 'logo-white.png', class:"footer__logo--img"
