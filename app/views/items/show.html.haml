@@ -30,13 +30,13 @@
 
     .item-main-content
       .item-main-content__photo
-        %img.item-main-content__photo--main{src:'#'}
+        = image_tag'#', class: 'item-main-content__photo--main'
         .item-main-content__photo--others
-          %img.photo-small{src:'#'}
-          %img.photo-small{src:'#'}
-          %img.photo-small{src:'#'}
-          %img.photo-small{src:'#'}
-          %img.photo-small{src:'#'}
+          = image_tag'#', class: 'photo-small'
+          = image_tag'#', class: 'photo-small'
+          = image_tag'#', class: 'photo-small'
+          = image_tag'#', class: 'photo-small'
+          = image_tag'#', class: 'photo-small'
         
       %table.item-main-content__table
         %tbody
