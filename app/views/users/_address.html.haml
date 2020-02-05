@@ -1,0 +1,55 @@
+-# 届け先住所
+.address
+  .address__head
+    .address__head--title-text 発送元・お届け先住所変更
+  .address__body
+    .address__body__form-group1
+      .address__body__form-group1--title お名前
+      .alert-text 必須
+      %input.address__body__form-group1__input-form{:name => :sample, :placeholder => "例) 山田", :type => :text, :value => ""}
+      %input.address__body__form-group1__input-form{:name => :sample, :placeholder => "例) 彩", :type => :text, :value => ""}
+    
+    
+    .address__body__form-group2 
+      .address__body__form-group1--title お名前カナ
+      .alert-text 必須
+      %input.address__body__form-group1__input-form{:name => :sample, :placeholder => "例) ヤマダ", :type => :text, :value => ""}
+      %input.address__body__form-group1__input-form{:name => :sample, :placeholder => "例) アヤ", :type => :text, :value => ""}
+
+
+    .address__body__form-group2
+      .address__body__form-group1--title 郵便番号
+      .alert-text 必須
+      %input.address__body__form-group1__input-form{:name => :sample, :placeholder => "例) 123-4567", :type => :text, :value => ""}
+
+    .address__body__form-group2
+      .address__body__form-group1--title 都道府県
+      .alert-text 必須
+      %select.select-default
+        %option{:value =>"0"} ---
+        %option{:value =>"1"} 神奈川県
+        %option{:value =>"2"} 東京都
+        %option{:value =>"3"} 千葉県
+
+    .address__body__form-group2
+      .address__body__form-group1--title 市町村
+      .alert-text 必須
+      %input.address__body__form-group1__input-form{:name => :sample, :placeholder => "例) 横浜市緑区", :type => :text, :value => ""}
+
+    .address__body__form-group2
+      .address__body__form-group1--title 番地
+      .alert-text 必須
+      %input.address__body__form-group1__input-form{:name => :sample, :placeholder => "例) 青山1-1-1", :type => :text, :value => ""}
+
+    .address__body__form-group2
+      .address__body__form-group1--title 建物名
+      .alert-text2 任意
+      %input.address__body__form-group1__input-form{:name => :sample, :placeholder => "", :type => :text, :value => ""}
+
+    .address__body__form-group2
+      .address__body__form-group1--title 電話
+      .alert-text2 任意
+      %input.address__body__form-group1__input-form{:name => :sample, :placeholder => "", :type => :text, :value => ""}
+
+    .address__body__submit
+      %input.address__body__submit--btn{name: :sample, :type => :submit, :value => "変更する"}
