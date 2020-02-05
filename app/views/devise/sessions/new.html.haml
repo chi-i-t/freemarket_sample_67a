@@ -1,0 +1,37 @@
+.account-page
+  .account__header
+    = link_to image_tag("logo.png", class: "account__header__test-image"),"#"
+  .loginMain
+    .loginMain__registration
+      .loginMain__registration__text
+        アカウントをお持ちでない方はこちら
+      = link_to "#", class:"link" do
+        .loginMain__registration__btn
+          新規会員登録
+    .loginMain__sns
+      = link_to "#", class: "account__center__url--facebook" do
+        .account__center__url--btn_facebook
+          = icon('fab', 'facebook-square')
+          Facebookで登録する
+      = link_to "#", class: "account__center__url--google" do
+        .account__center__url--btn_google
+          = icon('fab', 'google')
+          Googleで登録する
+    .loginMain__mail
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .loginMain__mail__field
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class:"form"
+        .loginMain__mail__field
+          = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class:"form"
+        .loginMain__mail__submit
+          = f.submit "ログイン", class:"loginMain__mail__submit-btn"
+        = link_to "パスワードをお忘れの方", new_password_path(resource_name), class: "loginMain__mail--fogetPass"
+  .account__footer
+    .account__footer--top
+      = link_to "プライバシーポリシー" , "#", class: "account__footer--top--1"
+      = link_to "FURIMA利用規約" , "#", class: "account__footer--top--2"
+      = link_to "特定商取引に関する表記" , "#", class: "account__footer--top--3"
+    .account__footer--logo
+      = link_to image_tag("logo-white.png", class: "account__footer--logo--test1-image"),"#"
+    .account__footer--name
+      © FURIMA, Inc.
