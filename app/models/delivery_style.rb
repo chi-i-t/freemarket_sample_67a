@@ -1,0 +1,2 @@
+class DeliveryStyle < ApplicationRecord
+end
