@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200205104504) do
+ActiveRecord::Schema.define(version: 20200206015204) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -40,14 +40,22 @@ ActiveRecord::Schema.define(version: 20200205104504) do
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",                          null: false
-    t.text     "description",     limit: 65535, null: false
-    t.integer  "price",                         null: false
+    t.string   "name",                            null: false
+    t.text     "description",       limit: 65535, null: false
+    t.integer  "price",                           null: false
     t.integer  "business_result"
-    t.string   "status",                        null: false
+    t.string   "status",                          null: false
     t.integer  "buyer_id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.integer  "brand_id"
+    t.integer  "delivery_style_id"
+    t.index ["brand_id"], name: "index_items_on_brand_id", using: :btree
+    t.index ["category_id"], name: "index_items_on_category_id", using: :btree
+    t.index ["delivery_style_id"], name: "index_items_on_delivery_style_id", using: :btree
+    t.index ["user_id"], name: "index_items_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -69,4 +77,8 @@ ActiveRecord::Schema.define(version: 20200205104504) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "items", "brands"
+  add_foreign_key "items", "categories"
+  add_foreign_key "items", "delivery_styles"
+  add_foreign_key "items", "users"
 end
