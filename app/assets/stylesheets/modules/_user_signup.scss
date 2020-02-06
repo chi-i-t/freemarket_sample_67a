@@ -1,3 +1,192 @@
 // 新規登録ページのscss
 
 
+.sell-container {
+  padding :0;
+  margin: 0;
+  width: 100vw;
+  background-color: rgb(245, 245, 245);
+  &__header {
+    height : 150px;   // 共通ヘッダーcss崩れたため、高さ変更
+    padding-top: 40px;
+    text-align: center;
+    &__link {
+      cursor: pointer;
+    }
+  }
+}
+
+.signup-main{
+  background-color: #f5f5f5;
+
+  .signup-form{
+    background-color: #fff;
+    width: 700px;
+    margin: 0 auto;
+    &__head{
+      font-size: 22px;
+      padding: 32px;
+      border-bottom: 0.5px solid #f5f5f5;
+      text-align: center;
+    }
+    &__container{
+      padding: 40px 40px 64px;
+      .form-groups{
+        padding: 0 135px;
+        .form-group{
+          margin-top: 35px;
+          font-size: 15px;
+          &__nickname{
+            display: flex;
+          }
+          &__largeform{
+            width: 100%;
+            margin: 8px 0 0;
+            padding: 10px 16px;
+            border-radius: 5px;
+          }
+        }
+        .form-group{
+          &__email{
+            display: flex;
+          }
+        }
+        .form-group{
+          &__password{
+            display: flex;
+          }
+          &__info-text{
+            color: #888888;
+            margin: 10px 0;
+          }
+          &__checkbox{
+            width: 100%;
+            margin: 5px;
+            .password-checkbox{
+              transform: scale(2);
+              margin: 8px;
+            }
+          }
+          &__password-confirmation{
+            font-size: 15px;
+          }
+        }
+        .form-group{
+          &__identification-text{
+            width: 100%;
+            font-size: 13px;
+            margin: 10px 0;
+          }
+        }
+        .form-group{
+          &__name{
+            display: flex;
+          }
+          &__name-form{
+            display: flex;
+            &--half{
+            width: 50%;
+            margin: 8px;
+            padding: 10px 16px;
+            border-radius: 5px;
+            }
+          }
+        }
+        .form-group{
+          &__name-kana{
+            display: flex;
+          }
+        }
+        .form-group{
+          &__birthday{
+            display: flex;
+          }
+          &__birthday-select{
+            #user_bithday_1i, #user_bithday_2i, #user_bithday_3i{
+              width: 80px;
+              margin: 8px;
+              height: 45px;
+            }
+          }
+        }
+        .form-text{
+          font-size: 13px;
+          color: #888888;
+          margin: 10px 0;
+        }
+        .form-submit{
+          margin-top: 35px;
+          &__btn{
+            width: 100%;
+            margin-top: 32px;
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+            line-height: 48px;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.alert-text {
+  display: inline;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  background-color: red;
+  margin-left: 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  vertical-align: top;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+}
+
+.optional-text{
+  display: inline;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  background-color: gray;
+  margin-left: 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  vertical-align: top;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+}
+
+
+
+.sell-container__footer {
+  background-color:  #f5f5f5;
+  height: 200px;   //共通フッター崩れたため高さ変更
+  width: 100%;
+  text-align: center;
+  padding: 40px 0 40px 0; //上右下左
+
+  &__focus-area {
+    height: 100%;
+    width: 456px;
+    margin: 0 auto;
+    text-align: center;
+    &--atag {
+      font-size: 12px;
+      color: #333333;
+      text-decoration: none;
+      margin-right: 15px;
+      margin-bottom: 20px;
+    }
+    &__logo {
+      cursor: pointer;
+    }
+    &__image {
+      margin-top: 30px;
+    }
+    &--text {
+      font-size: 13px;
+      font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+    }
+  }
+}
