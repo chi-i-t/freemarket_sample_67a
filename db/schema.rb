@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20200205065716) do
     t.string   "family_name_kana",                    null: false
     t.string   "first_name_kana",                     null: false
     t.string   "nickname",                            null: false
-    t.string   "bithday",                             null: false
+    t.date     "birthday",                            null: false
     t.string   "phone_number"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree

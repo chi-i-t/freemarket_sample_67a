@@ -21,7 +21,7 @@
             .form-group__email
               = f.label :メールアドレス
               .alert-text 必須
-            = f.email_field :email, placeholder: "PC・携帯どちらでも可", autofocus: true, class: 'form-group__largeform'
+            = f.email_field :email, placeholder: "PC・携帯どちらでも可", autocomplete: 'email', autofocus: true, class: 'form-group__largeform'
           
           .form-group
             .form-group__password
@@ -38,6 +38,7 @@
 
             .form-group__password-confirmation
               = f.label :パスワード再入力
+              
             = f.password_field :password_confirmation, placeholder: "再度入力してください", autocomplete: 'off', class: 'form-group__largeform'
                 
           .form-group
@@ -73,7 +74,8 @@
               .alert-text 必須
             .form-group__birthday-select
               %i.icon-arrow-bottom
-              = f.date_select :bithday, {start_year: Time.now.year, end_year: 1900, use_month_numbers: true, prompt:"--", date_separator: '/'}
+              -# != sprintf(f.date_select(:bithday, prefix:'bithday',with_css_classes:'aaa', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
+              = f.date_select :birthday, {start_year: Time.now.year, end_year: 1900, use_month_numbers: true, prompt:"--", date_separator: '/'}
                 
           .form-group
             .form-group__email

@@ -102,7 +102,7 @@
             display: flex;
           }
           &__birthday-select{
-            #user_bithday_1i, #user_bithday_2i, #user_bithday_3i{
+            #user_birthday_1i, #user_birthday_2i, #user_birthday_3i{
               width: 80px;
               margin: 8px;
               height: 45px;
@@ -124,6 +124,7 @@
             color: #fff;
             line-height: 48px;
             font-size: 14px;
+            cursor: pointer;
           }
         }
       }
