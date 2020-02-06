@@ -53,7 +53,7 @@
   width: 100vw;
   background-color: rgb(245, 245, 245);
   &__header {
-    height : calc( 128px - 40px );
+    height: 128px;
     padding-top: 40px;
     text-align: center;
     &__link {
@@ -405,32 +405,26 @@
     }
   }
   &__footer {
-    height: calc( 220px - 80px );
+    height: 220px;
     width: 100%;
     text-align: center;
     padding: 40px 0 40px 0; //上右下左
-
+    &__text {
+      font-size: 13px;
+      font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+    }
+    &__logo {
+      cursor: pointer;
+    }
+    &__image {
+      margin-top: 30px;
+    }
     &__focus-area {
-      height: 100%;
-      width: 456px;
-      margin: 0 auto;
-      text-align: center;
       &--atag {
         font-size: 12px;
         color: #333333;
         text-decoration: none;
         margin-right: 15px;
-        margin-bottom: 20px;
-      }
-      &__logo {
-        cursor: pointer;
-      }
-      &__image {
-        margin-top: 30px;
-      }
-      &--text {
-        font-size: 13px;
-        font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
       }
     }
   }

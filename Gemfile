@@ -76,3 +76,5 @@ gem 'pry-rails'
 gem 'fog-aws'
 
 gem 'devise'
+
+gem 'ancestry' #カテゴリー機能用Gem追加
