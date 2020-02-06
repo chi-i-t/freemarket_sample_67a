@@ -1,4 +1,4 @@
-# freemarket_sample_36a DB設計
+# freemarket_sample_67a DB設計
 
 
 ## usersテーブル
@@ -28,7 +28,7 @@
 |city|string|null: false|
 |address_number|string|null: false|
 |building_name|string||
-|user_id|reference|null: false,foreign_key: true|
+|user|reference|foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -47,7 +47,7 @@
 |adress_number|string|null: false|
 |building_name|string||
 |phone_number|string||
-|user_id|reference|null: false,foreign_key: true|
+|user|reference|foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -61,10 +61,10 @@
 |price|integer|null: false|
 |business_result|integer||
 |status|string|null: false|
-|user_id|reference|null: false,foreign_key: true|
-|category_id|reference|null: false,foreign_key: true|
-|brand_id|reference|null: false,foreign_key: true|
-|delivery_style_id|reference|null: false,foreign_key: true|
+|user|reference|foreign_key: true|
+|category|reference|foreign_key: true|
+|brand|reference|foreign_key: true|
+|delivery_style|reference|foreign_key: true|
 |buyer_id|integer||
 
 ### Association
@@ -89,7 +89,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|item_id|reference|null: false,foreign_key: true|
+|item|reference|foreign_key: true|
 
 ### Association
 - belongs_to :item
