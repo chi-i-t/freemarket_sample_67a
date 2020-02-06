@@ -1,0 +1,23 @@
+.header
+  .header__inner
+    .main
+      .main__icon
+        = link_to "#" do
+          = image_tag 'logo.png', class: 'main__icon__image'
+      .main__searchBox
+        %input.main__searchBox--input{name: "key", placeholder: "キーワードから探す"}
+        %button.main__searchBox__submit{type: "submit"}
+          = icon("fas", "search", class:"main__searchBox__submit--icon") 
+    .naviLists
+      .naviLists__Left
+        .naviLists__Left--category
+          カテゴリー
+        .naviLists__Left--brand
+          ブランド
+      .naviLists__Right
+        .naviLists__Right--login
+          = link_to "#", class:"link" do
+            ログイン
+        .naviLists__Right--new
+          = link_to "#", class:"link" do
+            新規会員登録
