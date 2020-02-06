@@ -1,32 +1,100 @@
+-# ヘッターは共通
+.sell-container
+  .sell-container__header
+    = link_to image_tag(src= "logo.png", size: "185x49"), "#", class: "sell-container__header__link"
+
+.signup-main
+  .signup-form
+    .signup-form__head
+      会員情報入力
+    .signup-form__container
+      .form-groups
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        
+          .form-group
+            .form-group__nickname
+              = f.label :ニックネーム
+              .alert-text 必須 
+            = f.text_field :nickname, placeholder: "例) メルカリ太郎", autofocus: true, class: 'form-group__largeform'
+          
+          .form-group
+            .form-group__email
+              = f.label :メールアドレス
+              .alert-text 必須
+            = f.email_field :email, placeholder: "PC・携帯どちらでも可", autofocus: true, class: 'form-group__largeform'
+          
+          .form-group
+            .form-group__password
+              = f.label :パスワード
+              .alert-text 必須
+            = f.password_field :password, placeholder: "7文字以上の半角英数字", autocomplete: 'off', class: 'form-group__largeform'
+            .form-group__info-text
+              ※ 英字と数字の両方を含めて設定してください
+
+            -# パスワード表示はJS 必須ではない ／ 再度入力は必須
+            .form-group__checkbox
+              =f.check_box :password, class:'password-checkbox'
+              %label パスワードを表示する
+
+            .form-group__password-confirmation
+              = f.label :パスワード再入力
+            = f.password_field :password_confirmation, placeholder: "再度入力してください", autocomplete: 'off', class: 'form-group__largeform'
+                
+          .form-group
+            .form-group__identification
+              本人確認
+            .form-group__identification-text
+              安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+
+          .form-group
+            .form-group__name
+              = f.label :お名前（全角）
+              .alert-text 必須
+            .form-group__name-form 
+              = f.text_field :family_name, placeholder: "例) 山田", autofocus: true, class: 'form-group__name-form--half'
+              = f.text_field :first_name, placeholder: "例) 彩", autofocus: true, class: 'form-group__name-form--half'
+              
+          .form-group
+            .form-group__name-kana
+              = f.label :お名前カナ（全角）
+              .alert-text 必須
+            .form-group__name-form 
+              = f.text_field :family_name_kana, placeholder: "例) ヤマダ", autofocus: true, class: 'form-group__name-form--half'
+              = f.text_field :first_name_kana, placeholder: "例) アヤ", autofocus: true, class: 'form-group__name-form--half'
 
 
+          -# もしかしてJSの方がいいか？
+          -# 参照https://qiita.com/doitokatsuki/items/28754d838397e4f2fb7f
+          -# 年月日表示できず／で対応
+          -# 参照https://qiita.com/ozackiee/items/3c027d07cdeb61df6029
+          .form-group
+            .form-group__birthday
+              = f.label :生年月日
+              .alert-text 必須
+            .form-group__birthday-select
+              %i.icon-arrow-bottom
+              = f.date_select :bithday, {start_year: Time.now.year, end_year: 1900, use_month_numbers: true, prompt:"--", date_separator: '/'}
+                
+          .form-group
+            .form-group__email
+              = f.label :携帯電話の番号
+              .optional-text 任意
+            = f.telephone_field :phone_number, pattern:"[0-9]{3}-[0-9]{4}-[0-9]{4", placeholder: "携帯電話の番号を入力してください", autofocus: true, class: 'form-group__largeform'
 
 
-.account-page
-  .account__header
-    = link_to image_tag("logo.png", class: "account__header__test-image"), root_path
-  .account__center
-    .account__center__title
-      新規会員登録
-    .account__center__url
-      = link_to "#", class: "account__center__url--envelope" do
-        .account__center__url--btn_mail
-          = icon('far', 'envelope')
-          メールアドレスで登録する
-      = link_to "#", class: "account__center__url--facebook" do
-        .account__center__url--btn_facebook
-          = icon('fab', 'facebook-square')
-          Facebookで登録する
-      = link_to "#", class: "account__center__url--google" do
-        .account__center__url--btn_google
-          = icon('fab', 'google')
-          Googleで登録する
-  .account__footer
-    .account__footer--top
-      = link_to "プライバシーポリシー" , "#", class: "account__footer--top--1"
-      = link_to "FURIMA利用規約" , "#", class: "account__footer--top--2"
-      = link_to "特定商取引に関する表記" , "#", class: "account__footer--top--3"
-    .account__footer--logo
-      = link_to image_tag("logo-white.png", class: "account__footer--logo--test1-image"),"#"
-    .account__footer--name
-      © FURIMA, Inc.
+          .form-text
+            ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+
+          .form-submit
+            .form-submit__text
+              「完了」のボタンを押すことにより、利用規約に同意したものとみなします
+            = f.submit "完了", class:'form-submit__btn'
+
+-# フッターは共通
+.sell-container__footer
+  .sell-container__footer__focus-area
+    = link_to "プライバシーポリシー", "#", class: "sell-container__footer__focus-area--atag"
+    = link_to "メルカリ利用規約", "#", class: "sell-container__footer__focus-area--atag"
+    = link_to "特定商取引に関する表記", "#", class: "sell-container__footer__focus-area--atag"
+    = link_to image_tag(src= "logo-white.png", size: "185x49", class: "sell-container__footer__focus-area__image"), "#", class: "sell-container__footer__focus-area__logo"
+    .sell-container__footer__focus-area--text @FURIMA, lnk.
