@@ -1,4 +1,5 @@
 -# ヘッターは共通
+
 .sell-container
   .sell-container__header
     = link_to image_tag(src= "logo.png", size: "185x49"), "#", class: "sell-container__header__link"
@@ -9,8 +10,8 @@
       会員情報入力
     .signup-form__container
       .form-groups
-        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-        
+        = form_for @user, url: user_registration_path, method: :post do |f|
+
           .form-group
             .form-group__nickname
               = f.label :ニックネーム
@@ -27,7 +28,7 @@
             .form-group__password
               = f.label :パスワード
               .alert-text 必須
-            = f.password_field :password, placeholder: "7文字以上の半角英数字", autocomplete: 'off', class: 'form-group__largeform'
+            = f.password_field :password, autocomplete: "new-password", placeholder: "7文字以上の半角英数字", required: "required", class: 'form-group__largeform'
             .form-group__info-text
               ※ 英字と数字の両方を含めて設定してください
 
@@ -39,7 +40,7 @@
             .form-group__password-confirmation
               = f.label :パスワード再入力
               
-            = f.password_field :password_confirmation, placeholder: "再度入力してください", autocomplete: 'off', class: 'form-group__largeform'
+            = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "7文字以上の半角英数字", required: "required", class: 'form-group__largeform'
                 
           .form-group
             .form-group__identification
