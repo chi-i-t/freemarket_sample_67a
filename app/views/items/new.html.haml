@@ -38,30 +38,42 @@
             .sell-container__main__inner__form__input2__form-box__group1
               .sell-container__main__inner__form__input2__form-box__group1--input-title カテゴリー
               .alert-text 必須
-              -# - form_for @parents do |parent|
-              -#   = f.select :parent_id, Parent.all.map{|o| [o.name, o.id]}
 
-              -# - form_with(model: user, local: true) do |form|
-
-              -# - form_with(model: @parents, local: true) do |form|
-              -#   = f.select :parent_id, Parent.all.map{|o| [o.name, o.id]}
-
-
-              // 値確認用
+              -# = form_for(@item, html: {class: 'sell-form'}) do |f|
+              -#   = f.select :category_id, @parents, {include_blank: '---'},{class: 'select-default'}
+              %select.select-default
+                - @parents.each do |parent|
+                  %option{:value =>"0"}
+                    = parent.name
+              
+              %select.select-default
+                - @parents.each do |parent|
+                  - parent.children.each do |child|
+                    %option{:value =>"0"}
+                      =child.name
+              
+              %select.select-default
+                - @parents.each do |parent|
+                  - parent.children.each do |child|
+                    - child.children.each do |grandchild|
+                      %option{:value =>"0"}
+                        =grandchild.name
+                  
+              //--------------保存---------------
               -# - @parents.each do |parent|
               -#   = parent.name
-              -#   = parent.child.name
-  
-              -# - @parents_array.each do |parent|
-              -#   = parent.name
-              -#   -parent.children.each do |child|
+              -#   - parent.children.each do |child|
               -#     =child.name
+              -#     - child.children.each do |grandchild|
+              -#       =grandchild.name
+              //---------------------------------
 
-              -# %select.select-default
-              -# %option{:value =>"0"} ---
-                -# %option{:value =>"1"} メンズ
-                -# %option{:value =>"2"} レディース
-                -# %option{:value =>"3"} ベビー・キッズ
+
+              -# - form_for @parents do |f|
+              -#   = f.select :name, @parents, {include_blank: '---'}, {class: 'hoge', id: 'hogehoge'}
+
+
+ 
             .sell-container__main__inner__form__input2__form-box__group2
               .sell-container__main__inner__form__input2__form-box__group2--input-title 商品の状態
               .alert-text 必須
