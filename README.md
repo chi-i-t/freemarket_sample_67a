@@ -11,7 +11,7 @@
 |nickname|string|null: false|
 |email|string|null: false|
 |password|string|null: false|
-|bithday|string|null: false|
+|birthday|date|null: false|
 |phone_number|string||
 
 ### Association
