@@ -73,7 +73,7 @@
               .alert-text 必須
             .form-group__birthday-select
               %i.icon-arrow-bottom
-              = f.date_select :bithday, {start_year: Time.now.year, end_year: 1900, use_month_numbers: true, prompt:"--", date_separator: '/'}
+              = f.date_select :birthday, {start_year: Time.now.year, end_year: 1900, use_month_numbers: true, prompt:"--", date_separator: '/'}
                 
           .form-group
             .form-group__email
