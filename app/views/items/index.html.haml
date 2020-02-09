@@ -21,6 +21,10 @@
         .naviLists__Right--new
           = link_to new_user_registration_path, class:"link" do
             新規会員登録
+        .naviLists__Right--logout
+        = link_to "ログアウト", destroy_user_session_path, method: :delete
+
+
 .mainImage
   .mainImage__content
     .mainImage__content__subtitle
