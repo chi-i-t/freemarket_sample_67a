@@ -77,4 +77,4 @@ gem 'fog-aws'
 
 gem 'devise'
 
-gem 'ancestry' #カテゴリー機能用Gem追加
+gem 'ancestry' # カテゴリー機能用Gem追加
