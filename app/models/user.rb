@@ -11,10 +11,7 @@ class User < ApplicationRecord
     message: "全角のみで入力して下さい"
   }
 
-
-
   validates :family_name_kana, :first_name_kana,format: {
-
     with: /\A[\p{katakana} ー－&&[^ -~｡-ﾟ]]+\z/,
     message: "全角カタカナのみで入力して下さい"
   }
