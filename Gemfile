@@ -76,3 +76,6 @@ gem 'pry-rails'
 gem 'fog-aws'
 
 gem 'devise'
+
+gem 'devise-i18n'
+gem 'devise-i18n-views'
