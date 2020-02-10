@@ -5,8 +5,9 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @item.images.new
+    @item.status = 0
     @parents = Category.where(ancestry: nil)
-
     # @parents = Category.all.order("id ASC").limit(13)
     # @parents = Category.where(category_params)
     # セレクトボックスの初期値設定
@@ -17,7 +18,10 @@ class ItemsController < ApplicationController
     # end
   end
 
-  def create 
+  def create
+    @item = Item.new(item_params)
+    @item.save
+    redirect_to root_path
   end
 
   def show
@@ -33,14 +37,16 @@ class ItemsController < ApplicationController
   end
 
   private
+  # 値の受け取り制限を設定
+  # params.require(モデル名).permit(カラム名, カラム名)
 
   def item_params
-    params.requier(:item).permit(:name, :description, :price, :status, :business_result, :buyer_id)
+    # params.require(:item).permit(:name, :description, :price, :status, :business_result, :buyer_id, images_attributes: [:name])
+    params.require(:item).permit(:name, :description, :price, :status, :business_result, :buyer_id)
   end
 
 
   def category_params
-    # params.require(モデル名).permit(カラム名, カラム名)
     params.require(:category).permit(:id, :name)
   end
 
