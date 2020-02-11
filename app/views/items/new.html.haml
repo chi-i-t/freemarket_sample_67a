@@ -3,131 +3,142 @@
   .sell-container__header
     = link_to image_tag(src= "logo.png", size: "185x49"), "#", class: "sell-container__header__link"
 
-  .sell-container__main
-    .sell-container__main__inner
-      .sell-container__main__inner--head 商品の情報を入力
-      .sell-container__main__inner__form
-        // 画像登録部
-        .sell-container__main__inner__form__upload-box
-          .sell-container__main__inner__form__upload-box--head 出品画像
-          .alert-text 必須 
-          .sell-container__main__inner__form__upload-box--subhead 最大10枚までアップロードできます
-          .sell-container__main__inner__form__upload-box__drop-area 
-            .sell-container__main__inner__form__upload-box__drop-area--text 
-              %br
-              %br
-              %br
-              ドラッグアンドドロップ
-              %br
-              またはクリックしてファイルをアップロード
+  = form_for @item, url: {action: "create"}, html: {class: "sell_form"} do |f|
+    .sell-container__main
+      .sell-container__main__inner
+        .sell-container__main__inner--head 商品の情報を入力
 
-        // タイトルと説明入力部
-        .sell-container__main__inner__form__input1
-          .sell-container__main__inner__form__input1--title 商品名
-          .alert-text 必須 
-          %input.sell-container__main__inner__form__input1--title-default{:name => :sample, :placeholder => "商品名（必須 40文字まで)", :type => :text, :value => ""}
+        .sell-container__main__inner__form
+          // ---------------- 画像登録部 ---------------- 
+          .sell-container__main__inner__form__upload-box
+            .sell-container__main__inner__form__upload-box--head 出品画像
+            .alert-text 必須 
+            .sell-container__main__inner__form__upload-box--subhead 最大10枚までアップロードできます
+            = f.file_field :images ,name: "item[item_images_attributes][][image]",class: 'sell-container__main__inner__form__upload-box__drop-area',id: 'image_box',accept: "image/*",multiple: true,data: {image: 0}
 
-          .sell-container__main__inner__form__input1--desc 商品の説明
-          .alert-text 必須
-          %input.sell-container__main__inner__form__input1--desc-default{name: :sample, placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。', rows:"5", :value => ""}
+          // ---------------- タイトルと説明入力部 ----------------
+          .sell-container__main__inner__form__input1
+            .sell-container__main__inner__form__input1--title 商品名
+            .alert-text 必須 
+            = f.text_field :name, class: 'sell-container__main__inner__form__input1--title-default', placeholder: '商品名（必須 40文字まで)'
 
-        // 詳細入力部
-        .sell-container__main__inner__form__input2
-          .sell-container__main__inner__form__input2--sub-title 商品の詳細
-          .sell-container__main__inner__form__input2__form-box.clearfix
-            .sell-container__main__inner__form__input2__form-box__group1
-              .sell-container__main__inner__form__input2__form-box__group1--input-title カテゴリー
-              .alert-text 必須
-              %select.select-default
-                %option{:value =>"0"} ---
-                %option{:value =>"1"} メンズ
-                %option{:value =>"2"} レディース
-                %option{:value =>"3"} ベビー・キッズ
-            .sell-container__main__inner__form__input2__form-box__group2
-              .sell-container__main__inner__form__input2__form-box__group2--input-title 商品の状態
-              .alert-text 必須
-              %select.select-default
-                %option{:value =>"0"} ---
-                %option{:value =>"1"} 新品・未使用
-                %option{:value =>"2"} 未使用に近い
-                %option{:value =>"3"} 目立った傷や汚れ無し
+            .sell-container__main__inner__form__input1--desc 商品の説明
+            .alert-text 必須
+            = f.text_area :description, class: 'sell-container__main__inner__form__input1--desc-default', placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。',rows:"5"
 
-
-        // 配送情報入力部
-        .sell-container__main__inner__form__input3
-          .sell-container__main__inner__form__input3--sub-title 配送について
-          .form-question ?
-          .sell-container__main__inner__form__input3__form-box.clearfix
-            .sell-container__main__inner__form__input3__form-box__group1
-              .sell-container__main__inner__form__input3__form-box__group1--input-title 配送料の負担
-              .alert-text 必須
-              %select.select-default
-                %option{:value =>"0"} ---
-                %option{:value =>"1"} 送料込み(出品者負担)
-                %option{:value =>"2"} 着払い(購入者負担)
-            .sell-container__main__inner__form__input3__form-box__group2
-              .sell-container__main__inner__form__input3__form-box__group2--input-title 発送元の地域
-              .alert-text 必須
-              %select.select-default
-                %option{:value =>"0"} ---
-                %option{:value =>"1"} 北海道
-                %option{:value =>"2"} 青森
-                %option{:value =>"3"} 岩手
-            .sell-container__main__inner__form__input3__form-box__group2
-              .sell-container__main__inner__form__input3__form-box__group2--input-title 発送までの日数
-              .alert-text 必須
-              %select.select-default
-                %option{:value =>"0"} ---
-                %option{:value =>"1"} 1~2日で発送
-                %option{:value =>"2"} 2~3日で発送
-                %option{:value =>"3"} 4~7日で発送
-
-
-        // 販売価格入力部
-        .sell-container__main__inner__form__input4
-          .sell-container__main__inner__form__input4--sub-title 販売価格(¥300~9,999,999)
-          .form-question ?
-          .sell-container__main__inner__form__input4__form-box.clearfix
-            .sell-container__main__inner__form__input4__form-box__group1
-              .sell-container__main__inner__form__input4__form-box__group1__left
-                .sell-container__main__inner__form__input4__form-box__group1__left--input-title 価格
+          // ---------------- 詳細入力部 ----------------
+          .sell-container__main__inner__form__input2
+            .sell-container__main__inner__form__input2--sub-title 商品の詳細
+            .sell-container__main__inner__form__input2__form-box.clearfix
+              .sell-container__main__inner__form__input2__form-box__group1
+                .sell-container__main__inner__form__input2__form-box__group1--input-title カテゴリー
                 .alert-text 必須
-              .sell-container__main__inner__form__input4__form-box__group1__right
-                %input.input-price{:name => :sample, :placeholder => "例) 300", :type => :text, :value => ""}
-            .sell-container__main__inner__form__input4__form-box__group2
-              .sell-container__main__inner__form__input4__form-box__group2--handling-title 販売手数料(10%)
-              .sell-container__main__inner__form__input4__form-box__group2--handling-cost ¥30
-            .sell-container__main__inner__form__input4__form-box__group2
-              .sell-container__main__inner__form__input4__form-box__group2--profit-title 販売利益
-              .sell-container__main__inner__form__input4__form-box__group2--profit ¥270
+
+                -# =form_for @category do |f|
+                  -# =f.select :category, @parents, {include_blank: '---'},{class: 'select-default'}
+
+                -# @インスタンス変数名.map{|c| |c.name, c.id|}とすることで、select box内に表示される時の表示形式を指定している
+                -# = form_for @item, url: {action: "create"}, html: {class: "sell_form"} do |f|
+                -# =f.select :name, @parents.map{|c| [c.name, c.id]}, {include_blank: '---'},{class: 'select-default'}
+
+                //--------------保存---------------
+                -# - @parents.each do |parent|
+                -#   = parent.name
+                -#   - parent.children.each do |child|
+                -#     =child.name
+                -#     - child.children.each do |grandchild|
+                -#       =grandchild.name
+                //---------------------------------
+
+              .sell-container__main__inner__form__input2__form-box__group2
+                .sell-container__main__inner__form__input2__form-box__group2--input-title 商品の状態
+                .alert-text 必須
+                %select.select-default
+                  %option{:value =>"0"} ---
+                  %option{:value =>"1"} 新品・未使用
+                  %option{:value =>"2"} 未使用に近い
+                  %option{:value =>"3"} 目立った傷や汚れ無し
 
 
-        .sell-container__main__inner__form__sell-btn-box
-          .sell-container__main__inner__form__sell-btn-box--caution-text
-            = link_to "禁止されている出品", "#", class: "caution-text-a-tag"
-            、
-            = link_to "行為", "#", class: "caution-text-a-tag"
-            を必ずご確認ください。
-            %br
-            またブランド品でシリアルナンバー等がある場合はご記載ください。
-            = link_to "偽ブランドの販売", "#", class: "caution-text-a-tag"
-            は犯罪であり処罰される可能性があります。
-            また、出品をもちまして
-            = link_to "加盟店規約", "#", class: "caution-text-a-tag"
-            に同意したことになります。
+          // ---------------- 配送情報入力部 ---------------- 
+          .sell-container__main__inner__form__input3
+            .sell-container__main__inner__form__input3--sub-title 配送について
+            .form-question ?
+            .sell-container__main__inner__form__input3__form-box.clearfix
+              .sell-container__main__inner__form__input3__form-box__group1
+                .sell-container__main__inner__form__input3__form-box__group1--input-title 配送料の負担
+                .alert-text 必須
+                %select.select-default
+                  %option{:value =>"0"} ---
+                  %option{:value =>"1"} 送料込み(出品者負担)
+                  %option{:value =>"2"} 着払い(購入者負担)
+              .sell-container__main__inner__form__input3__form-box__group2
+                .sell-container__main__inner__form__input3__form-box__group2--input-title 発送元の地域
+                .alert-text 必須
+                %select.select-default
+                  %option{:value =>"0"} ---
+                  %option{:value =>"1"} 北海道
+                  %option{:value =>"2"} 青森
+                  %option{:value =>"3"} 岩手
+              .sell-container__main__inner__form__input3__form-box__group2
+                .sell-container__main__inner__form__input3__form-box__group2--input-title 発送までの日数
+                .alert-text 必須
+                %select.select-default
+                  %option{:value =>"0"} ---
+                  %option{:value =>"1"} 1~2日で発送
+                  %option{:value =>"2"} 2~3日で発送
+                  %option{:value =>"3"} 4~7日で発送
 
-          %input.sell-container__main__inner__form__sell-btn-box__submit-btn{name: :sample, :type => :submit, :value => "出品する"}
-          .sell-container__main__inner__form__sell-btn-box__back-btn
-            = link_to "もどる", "#", class: "sell-back-btn"
+          // ---------------- 販売価格入力部 ---------------- 
+          .sell-container__main__inner__form__input4
+            .sell-container__main__inner__form__input4--sub-title 販売価格(¥300~9,999,999)
+            .form-question ?
+            .sell-container__main__inner__form__input4__form-box.clearfix
+              .sell-container__main__inner__form__input4__form-box__group1
+                .sell-container__main__inner__form__input4__form-box__group1__left
+                  .sell-container__main__inner__form__input4__form-box__group1__left--input-title 価格
+                  .alert-text 必須
+                .sell-container__main__inner__form__input4__form-box__group1__right
+                  = f.number_field :price, class: 'input-price', placeholder: '例) 300'
+                  -# 変更前->> %input.input-price{:name => :sample, :placeholder => "例) 300", :type => :text, :value => ""}
+              .sell-container__main__inner__form__input4__form-box__group2
+                .sell-container__main__inner__form__input4__form-box__group2--handling-title 販売手数料(10%)
+                .sell-container__main__inner__form__input4__form-box__group2--handling-cost ¥30
+              .sell-container__main__inner__form__input4__form-box__group2
+                .sell-container__main__inner__form__input4__form-box__group2--profit-title 販売利益
+                .sell-container__main__inner__form__input4__form-box__group2--profit ¥270
+
+
+          .sell-container__main__inner__form__sell-btn-box
+            .sell-container__main__inner__form__sell-btn-box--caution-text
+              = link_to "禁止されている出品", "#", class: "caution-text-a-tag"
+              、
+              = link_to "行為", "#", class: "caution-text-a-tag"
+              を必ずご確認ください。
+              %br
+              またブランド品でシリアルナンバー等がある場合はご記載ください。
+              = link_to "偽ブランドの販売", "#", class: "caution-text-a-tag"
+              は犯罪であり処罰される可能性があります。
+              また、出品をもちまして
+              = link_to "加盟店規約", "#", class: "caution-text-a-tag"
+              に同意したことになります。
+
+            = f.submit '出品する', class:"sell-container__main__inner__form__sell-btn-box__submit-btn"
+
+            .sell-container__main__inner__form__sell-btn-box__back-btn
+              = link_to "もどる", "#", class: "sell-back-btn"
+
+
+
 
   .sell-container__footer
     .sell-container__footer__focus-area
       = link_to "プライバシーポリシー", "#", class: "sell-container__footer__focus-area--atag"
       = link_to "メルカリ利用規約", "#", class: "sell-container__footer__focus-area--atag"
       = link_to "特定商取引に関する表記", "#", class: "sell-container__footer__focus-area--atag"
-      = link_to image_tag(src= "logo-white.png", size: "185x49", class: "sell-container__footer__focus-area__image"), "#", class: "sell-container__footer__focus-area__logo"
+    = link_to image_tag(src= "logo-white.png", size: "185x49", class: "sell-container__footer__image"), "#", class: "sell-container__footer__logo"
       
-      .sell-container__footer__focus-area--text @FURIMA, lnk.
+    .sell-container__footer__text @FURIMA, lnk.
 
  
 
