@@ -5,7 +5,8 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @item.images.new
+    # @item.images.new
+    4.times{@item.images.build}
     @item.status = 0
     @parents = Category.where(ancestry: nil)
     # @parents = Category.all.order("id ASC").limit(13)
@@ -20,8 +21,11 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.save
-    redirect_to root_path
+    if @item.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def show
@@ -40,7 +44,7 @@ class ItemsController < ApplicationController
   # 値の受け取り制限を設定
   # params.require(モデル名).permit(カラム名, カラム名)
   def item_params
-    params.require(:item).permit(:name, :description, :price, :status, :business_result, :buyer_id, images_attributes: [:name])
+    params.require(:item).permit(:name, :description, :price, :status, :business_result, :buyer_id, images_attributes: [:name],category_id: [])
   end
 
 

@@ -14,11 +14,12 @@
             .alert-text 必須 
             .sell-container__main__inner__form__upload-box--subhead 最大10枚までアップロードできます
 
-            = f.file_field :image, class: 'sell-container__main__inner__form__upload-box__drop-area'
-
-            -# = f.fields_for :images, 'sell-container__main__inner__form__upload-box__drop-area' do |i|
+            -# 変更前->> = f.file_field :image, class: 'sell-container__main__inner__form__upload-box__drop-area'
+            -# = f.fields_for :images, class:'sell-container__main__inner__form__upload-box__drop-area', id:'image-box' do |i|
             -#   = i.file_field :name
+            -#   %br
 
+            = f.file_field :images ,name: "item[item_images_attributes][][image]",class: 'sell-container__main__inner__form__upload-box__drop-area',id: 'image_box',accept: "image/*",multiple: true,data: {image: 0}
 
           // ---------------- タイトルと説明入力部 ----------------
           .sell-container__main__inner__form__input1
@@ -39,12 +40,12 @@
               .sell-container__main__inner__form__input2__form-box__group1
                 .sell-container__main__inner__form__input2__form-box__group1--input-title カテゴリー
                 .alert-text 必須
-                -# =form_for @item do |f|
-                -#   =f.select :name, @parents, {include_blank: '---'},{class: 'select-default'}
+                -# =form_for @category do |f|
+                  -# =f.select :category, @parents, {include_blank: '---'},{class: 'select-default'}
 
                 -# @インスタンス変数名.map{|c| |c.name, c.id|}とすることで、select box内に表示される時の表示形式を指定している
                 -# = form_for @item, url: {action: "create"}, html: {class: "sell_form"} do |f|
-                =f.select :name, @parents.map{|c| [c.name, c.id]}, {include_blank: '---'},{class: 'select-default'}
+                -# =f.select :name, @parents.map{|c| [c.name, c.id]}, {include_blank: '---'},{class: 'select-default'}
 
 
 
