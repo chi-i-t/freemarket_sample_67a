@@ -13,22 +13,16 @@
 ActiveRecord::Schema.define(version: 20200206042323) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",       null: false
-    t.string   "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "delivery_styles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "postage",    null: false
-    t.string   "area",       null: false
-    t.string   "days",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,22 +36,11 @@ ActiveRecord::Schema.define(version: 20200206042323) do
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",                            null: false
-    t.text     "description",       limit: 65535, null: false
-    t.integer  "price",                           null: false
-    t.integer  "business_result"
-    t.string   "status",                          null: false
-    t.integer  "buyer_id"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.integer  "user_id"
-    t.integer  "category_id"
-    t.integer  "brand_id"
-    t.integer  "delivery_style_id"
-    t.index ["brand_id"], name: "index_items_on_brand_id", using: :btree
-    t.index ["category_id"], name: "index_items_on_category_id", using: :btree
-    t.index ["delivery_style_id"], name: "index_items_on_delivery_style_id", using: :btree
-    t.index ["user_id"], name: "index_items_on_user_id", using: :btree
+    t.string   "name"
+    t.text     "description", limit: 65535
+    t.integer  "price"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -80,8 +63,4 @@ ActiveRecord::Schema.define(version: 20200206042323) do
   end
 
   add_foreign_key "images", "items"
-  add_foreign_key "items", "brands"
-  add_foreign_key "items", "categories"
-  add_foreign_key "items", "delivery_styles"
-  add_foreign_key "items", "users"
 end
