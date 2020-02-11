@@ -88,7 +88,7 @@
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|src|string|null: false|
 |item|reference|foreign_key: true|
 
 ### Association
