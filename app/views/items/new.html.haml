@@ -16,10 +16,22 @@
             .alert-text 必須 
             .sell-container__main__inner__form__upload-box--subhead 最大10枚までアップロードできます
             -# = f.file_field :images ,name: "item[item_images_attributes][][image]",class: 'sell-container__main__inner__form__upload-box__drop-area',id: 'image_box',accept: "image/*",multiple: true,data: {image: 0}
-            .sell-container__main__inner__form__upload-box__drop-area
+            .sell-container__main__inner__form__upload-box__drop-area{ id:"image-box" }
+
+              -#  -------------beforeの記述------------------------
+              -# =f.fields_for :images do |i|
+              -#   = i.file_field :src, class: 'js-file'
+              -#  ------------------------------------------------
+
               =f.fields_for :images do |i|
-                =i.file_field :src
+                .js-file_group{"data-index" => "#{i.index}"}
+                = i.file_field :src, class: 'js-file'
                 .js-remove 削除
+
+              -# =f.fields_for :images do |i|
+              -#   .js-file_group{"data-index" => "#{i.index}"}
+              -#   = i.file_field :src, class: 'js-file'
+              -#   .js-remove 削除
 
           // ---------------- タイトルと説明入力部 ----------------
           .sell-container__main__inner__form__input1
@@ -143,6 +155,4 @@
       = link_to "特定商取引に関する表記", "#", class: "sell-container__footer__focus-area--atag"
       = link_to image_tag(src= "logo-white.png", size: "185x49", class: "sell-container__footer__focus-area__image"), "#", class: "sell-container__footer__focus-area__logo"
       .sell-container__footer__focus-area--text @FURIMA, lnk.
-
- 
 
