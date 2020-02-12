@@ -23,6 +23,11 @@ class ItemsController < ApplicationController
   end
 
   def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -32,7 +37,11 @@ class ItemsController < ApplicationController
   # 値の受け取り制限を設定
   # params.require(モデル名).permit(カラム名, カラム名,...)
   def item_params
-    params.require(:item).permit(:name, :description, :price, images_attributes: [:src])
+    params.require(:item).permit(:name, :description, :price, images_attributes: [:src, :_destroy, :id])
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
   
 end

@@ -18,20 +18,27 @@
             -# = f.file_field :images ,name: "item[item_images_attributes][][image]",class: 'sell-container__main__inner__form__upload-box__drop-area',id: 'image_box',accept: "image/*",multiple: true,data: {image: 0}
             .sell-container__main__inner__form__upload-box__drop-area{ id:"image-box" }
 
-              -#  -------------beforeの記述------------------------
+              -#  -------------step1の記述 1画像投稿-----------------
               -# =f.fields_for :images do |i|
               -#   = i.file_field :src, class: 'js-file'
               -#  ------------------------------------------------
 
+              -#  -------------step2の記述 js用クラスの追加------------
               =f.fields_for :images do |i|
                 .js-file_group{"data-index" => "#{i.index}"}
                 = i.file_field :src, class: 'js-file'
                 .js-remove 削除
+                -#  ------------------------------------------------
+                
+                // ------------------- 編集機能用 --------------------
+                // 利用したインスタンスが、もしデータベースに保存済みならばtrue
+                -# - if @item.persisted?
+                -#   = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
 
-              -# =f.fields_for :images do |i|
-              -#   .js-file_group{"data-index" => "#{i.index}"}
-              -#   = i.file_field :src, class: 'js-file'
-              -#   .js-remove 削除
+                -# - if @item.persisted?
+                -#   .js-file_group{"data-index" => "#{@item.images.count}"}
+                -#     = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
+                -#     .js-remove 削除
 
           // ---------------- タイトルと説明入力部 ----------------
           .sell-container__main__inner__form__input1
