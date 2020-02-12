@@ -14,7 +14,10 @@
             .sell-container__main__inner__form__upload-box--head 出品画像
             .alert-text 必須 
             .sell-container__main__inner__form__upload-box--subhead 最大10枚までアップロードできます
-            = f.file_field :images ,name: "item[item_images_attributes][][image]",class: 'sell-container__main__inner__form__upload-box__drop-area',id: 'image_box',accept: "image/*",multiple: true,data: {image: 0}
+            -# = f.file_field :images ,name: "item[item_images_attributes][][image]",class: 'sell-container__main__inner__form__upload-box__drop-area',id: 'image_box',accept: "image/*",multiple: true,data: {image: 0}
+            =f.fields_for :images, class: 'sell-container__main__inner__form__upload-box__drop-area',id: 'image_box' do |i|
+              =i.file_field :src
+            -#     .js-remove 削除
 
           // ---------------- タイトルと説明入力部 ----------------
           .sell-container__main__inner__form__input1

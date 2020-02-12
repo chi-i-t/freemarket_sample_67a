@@ -4,10 +4,12 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @item.images.new # Productクラスのインスタンスに関連づけられた、Imageクラスのインスタンスを作成
   end
 
   def create 
     @item = Item.new(item_params)
+    binding.pry
     if @item.save
       redirect_to root_path
     else
@@ -31,7 +33,7 @@ class ItemsController < ApplicationController
   # 値の受け取り制限を設定
   # params.require(モデル名).permit(カラム名, カラム名,...)
   def item_params
-    params.require(:item).permit(:name, :description, :price)
+    params.require(:item).permit(:name, :description, :price, images_attributes: [:src])
   end
   
 end
