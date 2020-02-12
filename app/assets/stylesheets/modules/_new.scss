@@ -408,22 +408,23 @@
     width: 100%;
     text-align: center;
     padding: 40px 0 40px 0; //上右下左
-    &__text {
-      font-size: 13px;
-      font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-    }
-    &__logo {
-      cursor: pointer;
-    }
-    &__image {
-      margin-top: 30px;
-    }
     &__focus-area {
       &--atag {
         font-size: 12px;
         color: #333333;
         text-decoration: none;
         margin-right: 15px;
+      }
+      &__logo {
+        cursor: pointer;
+      }
+      &__image {
+        margin-top: 30px;
+      }
+      &--text {
+        font-size: 13px;
+        font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+        margin-top: 10px;
       }
     }
   }
