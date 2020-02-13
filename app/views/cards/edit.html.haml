@@ -1,0 +1,7 @@
+.main__content
+  %section.chapter__container
+    .chapter__head クレジットカード情報入力
+    = form_tag(card_path, method: :put, action: "create", id: 'charge-form',  name: "inputForm") do
+      = render partial: "form"
+      #card_token
+      = submit_tag "変更する", id: "token_submit", class: "top__margin"
