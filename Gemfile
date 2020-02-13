@@ -78,3 +78,5 @@ gem 'fog-aws'
 gem 'devise'
 
 gem 'ancestry'
+
+gem 'active_hash'
