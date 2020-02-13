@@ -66,6 +66,8 @@
 |brand|reference|foreign_key: true|
 |delivery_fee_id|integer|null: false|
 |delivery_way_id|integer|null: false|
+|delivery_day_id|integer|null: false|
+|item_condition_id|integer|null: false|
 |buyer_id|integer||
 
 ### Association

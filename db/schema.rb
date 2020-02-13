@@ -29,16 +29,18 @@ ActiveRecord::Schema.define(version: 20200213065504) do
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.text     "description",     limit: 65535
+    t.text     "description",       limit: 65535
     t.integer  "price"
     t.integer  "business_result"
     t.string   "status"
     t.integer  "buyer_id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.integer  "delivery_fee_id",               null: false
-    t.integer  "delivery_way_id",               null: false
-    t.integer  "prefecture_id",                 null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.integer  "delivery_fee_id",                 null: false
+    t.integer  "delivery_way_id",                 null: false
+    t.integer  "prefecture_id",                   null: false
+    t.integer  "delivery_day_id",                 null: false
+    t.integer  "item_condition_id",               null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
