@@ -25,6 +25,6 @@ class User < ApplicationRecord
     message: "全角カタカナのみで入力して下さい"
   }
 
-  
+  belongs_to :card
 end
 
