@@ -24,7 +24,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |postal_code|string｜null: false|
-|prefectures|string|null: false|
+|prefecture|string|null: false|
 |city|string|null: false|
 |address_number|string|null: false|
 |building_name|string||
@@ -64,7 +64,8 @@
 |user|reference|foreign_key: true|
 |category|reference|foreign_key: true|
 |brand|reference|foreign_key: true|
-|delivery_style|reference|foreign_key: true|
+|delivery_fee_id|integer|null: false|
+|delivery_way_id|integer|null: false|
 |buyer_id|integer||
 
 ### Association
