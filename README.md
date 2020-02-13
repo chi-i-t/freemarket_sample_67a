@@ -18,6 +18,7 @@
 - has_many :items
 - has_one :address
 - has_one :shipping_address
+- has_one :card
 
 
 ## addressesテーブル
@@ -115,5 +116,14 @@
 - has_many :items
 
 
-## credit_cards
-pay.jpで実装するので不要
+## cardsテーブル
+pay.jpで実装
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|foreign_key: true|
+|customer_id|string|null: false|
+|card_id|string|null: false|
+
+### Association
+- belongs_to :user
