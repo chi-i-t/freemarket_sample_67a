@@ -4,6 +4,30 @@
   clear: both;
   display: block;
 }
+.js-remove {
+  font-size: 12px;
+  color: blue;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  cursor: pointer;
+  display: inline;
+}
+// .js-file_group {
+//   display: flex;
+// }
+// #image-box {
+//   display: flex;
+// }
+// #preview {
+//   display: flex;
+// }
+.js-file {
+  height: 20px;
+  width: 100px;
+}
+// #image-box {
+//   display: flex;
+// }
+
 .form-question {
   display: inline-block;
   width: 14px;
