@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20200213065504) do
     t.datetime "updated_at",                    null: false
     t.integer  "delivery_fee_id",               null: false
     t.integer  "delivery_way_id",               null: false
+    t.integer  "prefecture_id",                 null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

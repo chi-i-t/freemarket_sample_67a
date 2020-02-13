@@ -41,7 +41,7 @@ class ItemsController < ApplicationController
   # 値の受け取り制限を設定
   # params.require(モデル名).permit(カラム名, カラム名,...)
   def item_params
-    params.require(:item).permit(:name, :description, :price, :business_result, :status, images_attributes: [:src, :_destroy, :id])
+    params.require(:item).permit(:name, :description, :price, :business_result, :prefecture_id, :delivery_fee_id, :delivery_way_id, :status, images_attributes: [:src, :_destroy, :id])
   end
 
   # 商品編集・削除・詳細表示用
