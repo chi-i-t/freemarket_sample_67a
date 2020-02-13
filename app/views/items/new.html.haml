@@ -115,11 +115,9 @@
               .sell-container__main__inner__form__input3__form-box__group2
                 .sell-container__main__inner__form__input3__form-box__group2--input-title 発送元の地域
                 .alert-text 必須
-                %select.select-default
-                  %option{:value =>"0"} ---
-                  %option{:value =>"1"} 北海道
-                  %option{:value =>"2"} 青森
-                  %option{:value =>"3"} 岩手
+                =form_for '', class:"select-default" do |d|
+                  = d.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "---", class:"select-default"
+
               .sell-container__main__inner__form__input3__form-box__group2
                 .sell-container__main__inner__form__input3__form-box__group2--input-title 発送までの日数
                 .alert-text 必須
