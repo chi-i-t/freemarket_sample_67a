@@ -64,19 +64,4 @@ $(document).on('turbolinks:load', ()=> {
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   });
 
-  // id名 image-boxを取得し、.js-fileクラスがchange(変更)されたら発火する
-  // $('#image-box').on('change', '.js-file', function(e) {
-  //   // fileIndexの先頭の数字を使ってinputを作る.配列の先頭の数字をbuildFileField関数に渡す。
-  //   // image-boxのところに、buildFileFieldで生成したHTMLをappend(追加)する。
-  //   $('#image-box').append(buildFileField(fileIndex[0]));
-  //   fileIndex.shift(); //shift : 先頭を削除
-  //   // 末尾の数に1足した数を追加する
-  //   fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
-  // });
-
-  // $('#image-box').on('click', '.js-remove', function() {
-  //   $(this).parent().remove();
-  //   // 画像入力欄が0個にならないようにしておく
-  //   if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
-  // });
 });

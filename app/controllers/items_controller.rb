@@ -29,7 +29,6 @@ class ItemsController < ApplicationController
   def create 
     @item = Item.new(item_params)
     @item.status = "0"
-    # binding.pry
     if @item.save
       flash[:notice] = '商品を出品しました'
       redirect_to root_path

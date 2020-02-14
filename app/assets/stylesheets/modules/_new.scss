@@ -24,23 +24,12 @@ select {
   cursor: pointer;
   display: inline;
 }
-// .js-file_group {
-//   display: flex;
-// }
-// #image-box {
-//   display: flex;
-// }
-// #preview {
-//   display: flex;
-// }
+
 .js-file {
   height: 20px;
   width: 100px;
   // opacity: 0; //これでファイルを選択ボタンを透明化できる
 }
-// #image-box {
-//   display: flex;
-// }
 
 .form-question {
   display: inline-block;
@@ -81,9 +70,6 @@ select {
   font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
 }
 
-
-
-
 .sell-container {
   padding :0;
   margin: 0;
@@ -112,7 +98,6 @@ select {
         font-weight: bold;
       }
       &__form {
-        // height: 1919px; //あとで消す
         &__upload-box {
           width: 620px;
           padding: 40px;
