@@ -16,11 +16,23 @@ require 'rails_helper'
 
 describe Item do
   describe '#create' do
-    it "is invalid without a name (商品名は必須です) " do
 
-      item = Item.new(name: "", price: "1000", business_result: "900", description: "test", catefory_id: "513", prefecture_id: "0", delivery_fee_id:"1", delivery_way_id:"1", delivery_day_id: "1", item_condition_id: "1", status: "0", images_attributes: [:src, :_destroy, :id])
-      item.valid?
-      expect(item.errors[:name]).to include("can't be blank")
+    context 'cannot save' do
+      it "is invalid without a name (商品名は必須です) " do
+        item = build(:item, name: "")
+        item.valid?
+        expect(item.errors[:name]).to include("can't be blank")
+      end
     end
+    # context 'cannot save'
+
+
+
+
+
+
+
+
+
   end
 end
