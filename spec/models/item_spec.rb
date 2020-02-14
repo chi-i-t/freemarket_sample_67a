@@ -3,7 +3,7 @@ require 'rails_helper'
 # ------テスト内容------
 
 # アイテムを保存できる場合
-#   - 画像、商品名、説明文、カテゴリー、商品の状態、配送料の負担、発送の方法、
+#   - 商品名、説明文、カテゴリー、商品の状態、配送料の負担、発送の方法、
 #     発送の地域、発送までの日数、価格があれば保存できる。
 
 # 商品を保存できない場合
@@ -80,21 +80,6 @@ describe Item do
         expect(item.errors[:status]).to include("can't be blank")
       end
     end
-
-
-
-
-
-
-    # context 'cannot save'
-
-
-
-
-
-
-
-
 
   end
 end

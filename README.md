@@ -63,7 +63,6 @@
 |status|string|null: false|
 |user|reference|foreign_key: true|
 |category_id|integer|null: false|
-|brand|reference|foreign_key: true|
 |delivery_fee_id|integer|null: false|
 |delivery_way_id|integer|null: false|
 |delivery_day_id|integer|null: false|
@@ -73,8 +72,6 @@
 ### Association
 - belongs_to :user
 - belongs_to :category
-- belongs_to :brand
-- belongs_to :delivery_style
 - has_many :images
 
 
@@ -86,7 +83,7 @@
 
 ### Association
 - has_many :items
-
+- has_many :ancestory
 
 ## imagesテーブル
 |Column|Type|Options|
@@ -96,26 +93,6 @@
 
 ### Association
 - belongs_to :item
-
-
-## brandsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-
-### Association
-- has_many :items
-
-
-## delivery_stylesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|postage|string|null: false|
-|area|string|null: false|
-|days|string|null: false|
-
-### Association
-- has_many :items
 
 
 ## credit_cards
