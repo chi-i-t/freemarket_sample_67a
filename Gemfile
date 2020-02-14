@@ -44,7 +44,8 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'rspec-rails'
-  gem 'factory_bot_rails'
+  gem 'factory_bot_rails'  
+  gem 'faker', "~> 2.8"
 end
 
 group :development do
@@ -59,6 +60,7 @@ end
 group :production do
   gem 'unicorn', '5.4.1'
 end
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
@@ -81,4 +83,11 @@ gem 'devise'
 
 gem 'ancestry'
 
+<<<<<<< HEAD
 gem 'active_hash'
+=======
+gem 'active_hash'
+
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+>>>>>>> 6ee152e94eee3293ce130b7831071ec5542f5d58
