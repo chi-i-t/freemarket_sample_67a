@@ -17,13 +17,75 @@ require 'rails_helper'
 describe Item do
   describe '#create' do
 
+    context 'can save' do
+      it 'is valid with all params' do
+        expect(build(:item)).to be_valid
+      end
+    end
+
     context 'cannot save' do
-      it "is invalid without a name (商品名は必須です) " do
-        item = build(:item, name: "")
+      it "is invalid without a name" do
+        item = build(:item, name: nil)
         item.valid?
         expect(item.errors[:name]).to include("can't be blank")
       end
+      it "is invalid without a description" do
+        item = build(:item, description: nil)
+        item.valid?
+        expect(item.errors[:description]).to include("can't be blank")
+      end
+      it "is invalid without a price" do
+        item = build(:item, price: nil)
+        item.valid?
+        expect(item.errors[:price]).to include("can't be blank")
+      end
+      it "is invalid without a businbess result" do
+        item = build(:item, business_result: nil)
+        item.valid?
+        expect(item.errors[:business_result]).to include("can't be blank")
+      end
+      it "is invalid without a category" do
+        item = build(:item, category_id: nil)
+        item.valid?
+        expect(item.errors[:category_id]).to include("can't be blank")
+      end
+      it "is invalid without a prefecture" do
+        item = build(:item, prefecture_id: nil)
+        item.valid?
+        expect(item.errors[:prefecture_id]).to include("can't be blank")
+      end
+      it "is invalid without a delivery fee" do
+        item = build(:item, delivery_fee_id: nil)
+        item.valid?
+        expect(item.errors[:delivery_fee_id]).to include("can't be blank")
+      end
+      it "is invalid without a delivery way" do
+        item = build(:item, delivery_way_id: nil)
+        item.valid?
+        expect(item.errors[:delivery_way_id]).to include("can't be blank")
+      end
+      it "is invalid without a delivery day" do
+        item = build(:item, delivery_day_id: nil)
+        item.valid?
+        expect(item.errors[:delivery_day_id]).to include("can't be blank")
+      end
+      it "is invalid without a item condition" do
+        item = build(:item, item_condition_id: nil)
+        item.valid?
+        expect(item.errors[:item_condition_id]).to include("can't be blank")
+      end
+      it "is invalid without a status" do
+        item = build(:item, status: nil)
+        item.valid?
+        expect(item.errors[:status]).to include("can't be blank")
+      end
     end
+
+
+
+
+
+
     # context 'cannot save'
 
 
