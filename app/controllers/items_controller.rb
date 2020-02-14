@@ -31,6 +31,7 @@ class ItemsController < ApplicationController
     @item.status = "0"
     # binding.pry
     if @item.save
+      flash[:notice] = '商品を出品しました'
       redirect_to root_path
     else
       render :new
