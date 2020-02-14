@@ -62,7 +62,7 @@
 |business_result|integer||
 |status|string|null: false|
 |user|reference|foreign_key: true|
-|category|reference|foreign_key: true|
+|category_id|integer|null: false|
 |brand|reference|foreign_key: true|
 |delivery_fee_id|integer|null: false|
 |delivery_way_id|integer|null: false|

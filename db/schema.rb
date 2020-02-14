@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20200213085350) do
     t.integer  "prefecture_id",                   null: false
     t.integer  "delivery_day_id",                 null: false
     t.integer  "item_condition_id",               null: false
+    t.integer  "category_id",                     null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

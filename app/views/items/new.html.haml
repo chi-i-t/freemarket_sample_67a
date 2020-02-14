@@ -71,15 +71,29 @@
             .sell-container__main__inner__form__input2--sub-title 商品の詳細
             .sell-container__main__inner__form__input2__form-box.clearfix
               .sell-container__main__inner__form__input2__form-box__group1
-                .sell-container__main__inner__form__input2__form-box__group1--input-title カテゴリー
-                .alert-text 必須
+                -# .sell-container__main__inner__form__input2__form-box__group1--input-title カテゴリー
+                -# .alert-text 必須
+                -# listing-select-wrapper__box--select を select-defaultへ
+
+                .listing-form-box
+                  .listing-product-detail__category
+                    = f.label 'カテゴリー', class: 'sell-container__main__inner__form__input2__form-box__group1--input-title'
+                    .alert-text 必須
+                    .listing-select-wrapper
+                      .listing-select-wrapper__box
+                        = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                        %i.listing-select-wrapper__box--arrow-down
+                -# = f.select :category, @category_parent_array, {}, {class: "select-default", id: "parent-form"} 
+
+
+                -# = f.collection_select :category_id, @parents, :id, :name,{prompt: "---"}, class: "select-default", id: "parent-form", name: 'item[category_id][]'
 
                 -# =form_for @category do |f|
                 -#   =f.select :category, @parents, {include_blank: '---'},{class: 'select-default'}
 
                 -# @インスタンス変数名.map{|c| |c.name, c.id|}とすることで、select box内に表示される時の表示形式を指定している
                 -# = form_for @item, url: {action: "create"}, html: {class: "sell_form"} do |f|
-                -# =f.select :name, @parents.map{|c| [c.name, c.id]}, {include_blank: '---'},{class: 'select-default'}
+                -# =f.select :category_id, @parents.map{|c| [c.name, c.id]}, {include_blank: '---'},{class: 'select-default'}
 
                 //--------------保存---------------
                 -# - @parents.each do |parent|
