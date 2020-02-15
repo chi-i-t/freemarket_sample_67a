@@ -1,29 +1,5 @@
-.header
-  .header__inner
-    .main
-      .main__icon
-        = link_to root_path do
-          = image_tag 'logo.png', class: 'main__icon__image'
-      .main__searchBox
-        %input.main__searchBox--input{name: "key", placeholder: "キーワードから探す"}
-        %button.main__searchBox__submit{type: "submit"}
-          = icon("fas", "search", class:"main__searchBox__submit--icon") 
-    .naviLists
-      .naviLists__Left
-        .naviLists__Left--category
-          カテゴリー
-        .naviLists__Left--brand
-          ブランド
-      .naviLists__Right
-        .naviLists__Right--login
-          = link_to new_user_session_path, class:"link" do
-            ログイン
-        .naviLists__Right--new
-          = link_to new_user_registration_path, class:"link" do
-            新規会員登録
-        .naviLists__Right--logout
-        = link_to "ログアウト", destroy_user_session_path, method: :delete
 
+= render "items/header" 
 
 .mainImage
   .mainImage__content
@@ -172,56 +148,5 @@
                   1
               .listsContent__body--detail--tax
                 (税込)
-.appBanner
-  .appBanner__inner
-    .appBanner__inner--title
-      だれでもかんたん、人生を変えるフリマアプリ
-    .appBanner__inner--text
-      今すぐ無料ダウンロード！
-    .appBanner__inner--icon
-      = link_to "#", class:"storeLink" do
-        .appBanner__inner--icon--apple
-          = image_tag 'Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg', class: "storeIcon--a"
-      = link_to "#", class:"storeLink" do
-        .appBanner__inner--icon--google
-          = image_tag 'google-play-badge (1).png', class: "storeIcon--g"
-.footer
-  .footer__contents
-    .footer__contents__box
-      .footer__contents__box--head
-        FURIMAについて
-      .footer__contents__box--list
-        = link_to "会社概要(運営会社)","#", class: "linkFooter"
-      .footer__contents__box--list
-        = link_to "プライバシーポリシー", "#", class: "linkFooter"
-      .footer__contents__box--list
-        = link_to "FURIMA利用規約", "#", class: "linkFooter"
-      .footer__contents__box--list
-        = link_to "ポイントに関する特約", "#", class: "linkFooter"
-    .footer__contents__box
-      .footer__contents__box--head
-        FURIMAを見る
-      .footer__contents__box--list
-        = link_to "カテゴリー一覧", "#", class: "linkFooter"
-      .footer__contents__box--list
-        = link_to "ブランド一覧", "#", class: "linkFooter"
-    .footer__contents__box
-      .footer__contents__box--head
-        ヘルプ&ガイド
-      .footer__contents__box--list
-        = link_to "FURIMAガイド", "#", class: "linkFooter"
-      .footer__contents__box--list
-        = link_to "FURIMAロゴ利用ガイドライン", "#", class: "linkFooter"
-      .footer__contents__box--list
-        = link_to "お知らせ", "#", class: "linkFooter"
-  .footer__logo
-    = link_to "#", class:"link" do
-      = image_tag 'logo-white.png', class:"footer__logo--img"
-  .footer__copy
-    © FURIMA
-= link_to "#", class:"link" do
-  .purchaseBtn
-    .purchaseBtn__text
-      出品する
-      = image_tag 'icon_camera.png', class: "purchaseBtn__img"
 
+= render "items/footer" 

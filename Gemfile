@@ -83,8 +83,8 @@ gem 'devise'
 
 gem 'ancestry'
 
-
-
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 
 gem 'active_hash'
 
