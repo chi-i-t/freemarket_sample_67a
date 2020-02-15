@@ -95,6 +95,7 @@
         様々な支払いに対応
       .feature__lists__box--discription
         お支払いはクレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+
 .pickupItem
   .pickupItem__head
     ピックアップカテゴリー
@@ -103,50 +104,7 @@
       .pickupItem__box__head--title
         新規投稿商品
     .pickupItem__box__lists
-      = link_to "#", class:"link" do
-        .listsContent
-          .listsContent--img
-          .listsContent__body
-            .listsContent__body--name
-              product1
-            .listsContent__body--detail
-              .listsContent__body--detail--box
-                .listsContent__body--detail--box--price
-                  3000円
-                .listsContent__body--detail--box--like
-                  = icon("fas", "star", class:"listsContent__body--detail--box--like--icon")
-                  1
-              .listsContent__body--detail--tax
-                (税込)
-      = link_to "#", class:"link" do
-        .listsContent
-          .listsContent--img
-          .listsContent__body
-            .listsContent__body--name
-              product2
-            .listsContent__body--detail
-              .listsContent__body--detail--box
-                .listsContent__body--detail--box--price
-                  4000円
-                .listsContent__body--detail--box--like
-                  = icon("fas", "star", class:"listsContent__body--detail--box--like--icon")
-                  1
-              .listsContent__body--detail--tax
-                (税込)
-      = link_to "#", class:"link" do
-        .listsContent
-          .listsContent--img
-          .listsContent__body
-            .listsContent__body--name
-              product3
-            .listsContent__body--detail
-              .listsContent__body--detail--box
-                .listsContent__body--detail--box--price
-                  5000円
-                .listsContent__body--detail--box--like
-                  = icon("fas", "star", class:"listsContent__body--detail--box--like--icon")
-                  1
-              .listsContent__body--detail--tax
-                (税込)
+      = link_to "#", class:"pickupItem__box__lists__link" do
+        = render @items
 
 = render "items/footer" 

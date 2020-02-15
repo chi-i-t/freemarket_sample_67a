@@ -344,8 +344,10 @@
     &__lists{
       margin: 26px 330px;
       width: 780px;
-      display: flex;
-      justify-content: space-around;
+      &__link {
+        display: flex;
+        justify-content: space-around;
+      }
     }
   }
 }
@@ -371,6 +373,12 @@
       &--box{
         display: flex;
         justify-content: space-between;
+        &--price {
+          font-size: 15px;
+          font-weight: bold;
+        }::before{
+          content: "¥";
+        }
       }
       &--tax{
         font-size: 10px;
