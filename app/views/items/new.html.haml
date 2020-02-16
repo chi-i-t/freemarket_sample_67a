@@ -2,7 +2,6 @@
 .sell-container
   .sell-container__header
     = link_to image_tag(src= "logo.png", size: "185x49"), root_path, class: "sell-container__header__link"
-  -# = form_for @item, url: {action: "create"}, html: {class: "sell_form"} do |f|
   = form_for @item, class:"sell_form" do |f|
     .sell-container__main
       .sell-container__main__inner
