@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20200212111547) do
 
   create_table "cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -20,6 +21,50 @@ ActiveRecord::Schema.define(version: 20200212111547) do
     t.datetime "updated_at",  null: false
     t.index ["user_id"], name: "index_cards_on_user_id", using: :btree
   end
+
+ActiveRecord::Schema.define(version: 20200213085350) do
+
+  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "prefecture_id"
+    t.string   "city"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.string   "ancestry"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "src"
+    t.integer  "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_images_on_item_id", using: :btree
+  end
+
+  create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.text     "description",       limit: 65535
+    t.integer  "price"
+    t.integer  "business_result"
+    t.string   "status"
+    t.integer  "buyer_id"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.integer  "delivery_fee_id",                 null: false
+    t.integer  "delivery_way_id",                 null: false
+    t.integer  "prefecture_id",                   null: false
+    t.integer  "delivery_day_id",                 null: false
+    t.integer  "item_condition_id",               null: false
+    t.integer  "category_id",                     null: false
+  end
+
+ActiveRecord::Schema.define(version: 20200211040634) do
+
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
@@ -40,5 +85,9 @@ ActiveRecord::Schema.define(version: 20200212111547) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+
   add_foreign_key "cards", "users"
+
+  add_foreign_key "images", "items"
+
 end

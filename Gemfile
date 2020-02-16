@@ -80,8 +80,16 @@ gem 'fog-aws'
 
 gem 'devise'
 
+
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 
 gem 'payjp'
 gem 'dotenv-rails'
+
+gem 'ancestry'
+
+gem 'active_hash'
+
+
+

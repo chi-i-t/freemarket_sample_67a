@@ -1,4 +1,4 @@
-# freemarket_sample_36a DB設計
+# freemarket_sample_67a DB設計
 
 
 ## usersテーブル
@@ -11,7 +11,7 @@
 |nickname|string|null: false|
 |email|string|null: false|
 |password|string|null: false|
-|birthday|date|null: false|
+|bithday|string|null: false|
 |phone_number|string||
 
 ### Association
@@ -25,11 +25,11 @@
 |Column|Type|Options|
 |------|----|-------|
 |postal_code|string｜null: false|
-|prefectures|string|null: false|
+|prefecture|string|null: false|
 |city|string|null: false|
 |address_number|string|null: false|
 |building_name|string||
-|user_id|reference|null: false,foreign_key: true|
+|user|reference|foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -48,7 +48,7 @@
 |adress_number|string|null: false|
 |building_name|string||
 |phone_number|string||
-|user_id|reference|null: false,foreign_key: true|
+|user|reference|foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -62,17 +62,17 @@
 |price|integer|null: false|
 |business_result|integer||
 |status|string|null: false|
-|user_id|reference|null: false,foreign_key: true|
-|category_id|reference|null: false,foreign_key: true|
-|brand_id|reference|null: false,foreign_key: true|
-|delivery_style_id|reference|null: false,foreign_key: true|
+|user|reference|foreign_key: true|
+|category_id|integer|null: false|
+|delivery_fee_id|integer|null: false|
+|delivery_way_id|integer|null: false|
+|delivery_day_id|integer|null: false|
+|item_condition_id|integer|null: false|
 |buyer_id|integer||
 
 ### Association
 - belongs_to :user
 - belongs_to :category
-- belongs_to :brand
-- belongs_to :delivery_style
 - has_many :images
 
 
@@ -84,16 +84,17 @@
 
 ### Association
 - has_many :items
-
+- has_many :ancestory
 
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
-|item_id|reference|null: false,foreign_key: true|
+|src|string|null: false|
+|item|reference|foreign_key: true|
 
 ### Association
 - belongs_to :item
+
 
 
 ## brandsテーブル
@@ -127,3 +128,5 @@ pay.jpで実装
 
 ### Association
 - belongs_to :user
+
+
