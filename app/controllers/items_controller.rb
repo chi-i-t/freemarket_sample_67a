@@ -1,5 +1,8 @@
 class ItemsController < ApplicationController
+
+
   def index
+    @items = Item.includes(:images).last(3)
   end
 
   def new

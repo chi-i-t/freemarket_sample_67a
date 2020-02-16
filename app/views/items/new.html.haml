@@ -1,8 +1,7 @@
 -# 奥本さん担当
 .sell-container
   .sell-container__header
-    = link_to image_tag(src= "logo.png", size: "185x49"), "/", class: "sell-container__header__link"
-  -# = form_for @item, url: {action: "create"}, html: {class: "sell_form"} do |f|
+    = link_to image_tag(src= "logo.png", size: "185x49"), root_path, class: "sell-container__header__link"
   = form_for @item, class:"sell_form" do |f|
     .sell-container__main
       .sell-container__main__inner
@@ -176,7 +175,7 @@
             = f.submit '出品する', class:"sell-container__main__inner__form__sell-btn-box__submit-btn"
 
             .sell-container__main__inner__form__sell-btn-box__back-btn
-              = link_to "もどる", "#", class: "sell-back-btn"
+              = link_to "もどる", root_path, class: "sell-back-btn"
 
 
 
