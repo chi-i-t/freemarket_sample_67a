@@ -1,7 +1,13 @@
-.main__content
-  %section.chapter__container
-    .chapter__head クレジットカード情報入力
-    = form_tag(cards_path, method: :post, action: "create", id: 'charge-form',  name: "inputForm") do
-      = render partial: "form"
-      #card_token
-      = submit_tag "追加する", id: "token_submit", class: "top__margin"
+= render "header"
+
+.card-main
+  .card-container
+    .card-container__title
+      クレジットカード情報入力
+    .card-container__label
+      = form_tag(cards_path, method: :post, action: "create", id: 'charge-form',  name: "inputForm") do
+        = render partial: "form"
+        #card_token
+          = submit_tag "登録する", id: "token_submit", class: "top__margin"
+      
+= render "footer"
