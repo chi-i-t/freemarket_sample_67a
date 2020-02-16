@@ -2,7 +2,7 @@
 .listsContent
   .listsContent--img
     - item.images.each do |image|
-      = image_tag image.src.url, alt: "画像無し" if item.images.present?
+      = image_tag image.src.url.to_s, alt: "画像無し",size: "220x150" if item.images.present?
   .listsContent__body
     .listsContent__body--name
       = item.name
