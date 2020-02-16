@@ -14,9 +14,6 @@
       = exp_month + " / " + exp_year
 
     .card-container__btn
-      = form_tag(edit_card_path, method: :get, id: 'charge-form',  name: "inputForm") do
-        %input{ type: "hidden", name: "card_id", value: "" }
-        %button.card-edit-btn 変更する
       = form_tag(card_path, method: :delete, id: 'charge-form',  name: "inputForm") do
         %input{ type: "hidden", name: "card_id", value: "" }
         %button.card-delete-btn 削除する

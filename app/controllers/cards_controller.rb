@@ -40,25 +40,6 @@ class CardsController < ApplicationController
     end  
   end
 
-
-  def edit
-    
-  end
-  
-
-  def update
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-    customer = Payjp::Customer.create(
-    description: '登録テスト', 
-    email: current_user.email, 
-    card: params['payjp-token'],
-    metadata: {user_id: current_user.id}
-    ) 
-    @card = Card.update(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-    redirect_to action: "new"
-  end
-  
-
   def destroy
     card = Card.where(user_id: current_user.id).first
     if card.blank?
@@ -77,5 +58,6 @@ class CardsController < ApplicationController
   def set_card
     @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
   end
-
+  
+  
 end
