@@ -16,6 +16,7 @@
           ブランド
       .naviLists__Right
         .naviLists__Right--login
+
           - if user_signed_in?
             = link_to my_pages_path, class:"link" do
               マイページ

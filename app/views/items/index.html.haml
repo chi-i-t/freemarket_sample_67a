@@ -71,5 +71,42 @@
         .middleImage__inner__btn--google
           = image_tag 'google-play-badge (1).png', class: "storeIcon--g"
 
-= render "footer"
+.feature
+  .feature__subtitle
+    FURIMAの特徴
+  .feature__lists
+    .feature__lists__box
+      .feature__lists__box--img
+        = image_tag 'icon-01.png', class: "feature__img"
+      .feature__lists__box--text
+        簡単に売り買いできる
+      .feature__lists__box--discription
+        スマホひとつで、いつでもどこでも簡単に出品・購入が可能
+    .feature__lists__box
+      .feature__lists__box--img
+        = image_tag 'icon-03.png', class: "feature__img"
+      .feature__lists__box--text
+        売上金は即日振込みに対応
+      .feature__lists__box--discription
+        午前9時までに振込を依頼いただければ、翌日に指定の口座に入金致します。
+    .feature__lists__box
+      .feature__lists__box--img
+        = image_tag 'icon-04.png', class: "feature__img"
+      .feature__lists__box--text
+        様々な支払いに対応
+      .feature__lists__box--discription
+        お支払いはクレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
 
+.pickupItem
+  .pickupItem__head
+    ピックアップカテゴリー
+  .pickupItem__box
+    .pickupItem__box__head
+      .pickupItem__box__head--title
+        新規投稿商品
+    .pickupItem__box__lists
+      = link_to "#", class:"pickupItem__box__lists__link" do
+        = render @items
+
+
+= render "items/footer" 

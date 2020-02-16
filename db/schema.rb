@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20200212111547) do
     t.index ["user_id"], name: "index_cards_on_user_id", using: :btree
   end
 
+
 ActiveRecord::Schema.define(version: 20200213085350) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -62,9 +63,6 @@ ActiveRecord::Schema.define(version: 20200213085350) do
     t.integer  "item_condition_id",               null: false
     t.integer  "category_id",                     null: false
   end
-
-ActiveRecord::Schema.define(version: 20200211040634) do
-
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
