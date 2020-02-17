@@ -10,8 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20200213085350) do
 
-ActiveRecord::Schema.define(version: 20200212111547) do
+  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "prefecture_id"
+    t.string   "city"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -20,16 +26,6 @@ ActiveRecord::Schema.define(version: 20200212111547) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["user_id"], name: "index_cards_on_user_id", using: :btree
-  end
-
-
-ActiveRecord::Schema.define(version: 20200213085350) do
-
-  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "prefecture_id"
-    t.string   "city"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -83,9 +79,6 @@ ActiveRecord::Schema.define(version: 20200213085350) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-
   add_foreign_key "cards", "users"
-
   add_foreign_key "images", "items"
-
 end
