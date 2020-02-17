@@ -41,12 +41,14 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @grandchild = Category.find(@item.category_id)
   end
 
   def edit
     @item = Item.find(params[:id])
+    @images = @item.images
     @grandchild = Category.find(@item.category_id)
-    # @category = Category.find(@item.category_id)
   end
 
   # def update

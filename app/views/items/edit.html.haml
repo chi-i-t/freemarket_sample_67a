@@ -3,24 +3,25 @@
 
 .main-content
   .main-content__box
-    .item-name
+    .item-name.text-style
       = @item.name
 
     .item-main-content
       %ul.item-main-content__photo
-        - @item.images.each_with_index do |image, i|
-          %li.photo-up-piece
-            = image_tag image.src.url, data: { index: i }
+        = image_tag @images.first.src.url, alt: '商品画像', size: "300x300"
+        .photo-up-piece
+          - @item.images.each_with_index do |image, i|
+            = image_tag image.src.url, size:"60x60", class:"item-image-lists",data: { index: i }
       
       %table.item-main-content__table
         %tbody
           %tr
-            %th 出品者
+            %th.text-style 出品者
             %td
               = link_to 'ニックネーム', '＃'
           %tr
             %th カテゴリー
-            %td
+            %td.category-names.text-style
               = @grandchild.parent.parent.name
               %br
               %i.fa.fa-angle-right
@@ -30,28 +31,28 @@
               = @grandchild.name
 
           %tr
-            %th 商品の状態
-            %td 
+            %th.text-style 商品の状態
+            %td.text-style 
               = @item.item_condition.name
           %tr
-            %th 配送料の負担
-            %td 
+            %th.text-style 配送料の負担
+            %td.text-style 
               = @item.delivery_fee.name
           %tr
-            %th 配送元地域
-            %td
+            %th.text-style 配送元地域
+            %td.text-style
               = @item.prefecture.name
           %tr
-            %th 発送日の目安
-            %td
+            %th.text-style 発送日の目安
+            %td.text-style
               = @item.delivery_day.name
 
     .item-price-box
       .item-price-box__price
         = number_to_currency(@item.price, unit: "￥", strip_insignificant_zeros: true)
-      .item-price-box__tax
+      .item-price-box__tax.text-style
         (税込)
-      .item-price-box__shipping-fee
+      .item-price-box__shipping-fee.text-style
         送料込み
     = link_to '購入画面に進む', '#', class:'buy_btn'
 
