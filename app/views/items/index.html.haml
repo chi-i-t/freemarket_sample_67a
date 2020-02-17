@@ -1,5 +1,4 @@
-
-= render "items/header" 
+= render "header"
 
 .mainImage
   .mainImage__content
@@ -53,6 +52,7 @@
           業界最安値
       .introduction__lists__lastBox--discription
         最大3%でお得に出品&購入！
+
 .middleImage
   .middleImage__inner
     .middleImage__inner__subtitle
@@ -70,6 +70,7 @@
       = link_to "#", class:"storeLink" do
         .middleImage__inner__btn--google
           = image_tag 'google-play-badge (1).png', class: "storeIcon--g"
+
 .feature
   .feature__subtitle
     FURIMAの特徴
@@ -106,5 +107,6 @@
     .pickupItem__box__lists
       = link_to "#", class:"pickupItem__box__lists__link" do
         = render @items
+
 
 = render "items/footer" 

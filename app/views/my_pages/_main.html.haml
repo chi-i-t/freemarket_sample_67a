@@ -1,0 +1,24 @@
+.mypage-information
+  .mypage-information__title
+    本人情報
+  .mypage-information__text
+    お客さまの本人情報をご登録ください。
+    %p
+    登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+  .mypage-information__list
+    .mypage-information__list--label
+      %label お名前
+    .mypage-information__list--text
+      = current_user.family_name
+      = current_user.first_name
+      
+    .mypage-information__list--label
+      %label お名前カナ
+    .mypage-information__list--text
+      = current_user.family_name_kana
+      = current_user.first_name_kana
+
+    .mypage-information__list--label
+      %label 生年月日
+    .mypage-information__list--text
+      = current_user.birthday

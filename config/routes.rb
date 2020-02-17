@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
-
   
   root "items#index"
-
   
+
+  resources :cards, only: [:new, :create, :edit, :show, :destroy, :update]
+  resources :my_pages, only: [:index]
+
   resources :items, only: [:index, :show, :new, :edit, :destroy, :create] do
     #Ajaxで動くアクションのルートを作成
     collection do
@@ -12,5 +14,6 @@ Rails.application.routes.draw do
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
   end
+
 
 end

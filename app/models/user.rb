@@ -5,8 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   validates :email, presence: true
-  validates :password, presence: true
-  validates :password_confirmation, presence: true
   validates :family_name, presence: true
   validates :first_name, presence: true
   validates :family_name_kana, presence: true
@@ -25,6 +23,6 @@ class User < ApplicationRecord
     message: "全角カタカナのみで入力して下さい"
   }
 
-  
+  has_one :card
 end
 
