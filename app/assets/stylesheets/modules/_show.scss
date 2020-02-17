@@ -1,15 +1,16 @@
 // 高橋さん担当
-// とりあえずリセットCSS
-* {
-  box-sizing: border-box;
+.text-style{
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
 }
-html, body{
-  margin: 0;
-  padding: 0;
-  width:100%;
-  height:100%;
+
+.category-names {
+  font-size: 14px;
+  color: #0099e8;
 }
-// 以上リセット終了
+
+.photo-up-piece{
+  display: flex;
+}
 
 .header{
   padding-left: 60px;

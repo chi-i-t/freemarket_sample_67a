@@ -8,59 +8,47 @@
 
     .item-main-content
       %ul.item-main-content__photo
-        - @item.images.each_with_index do |image, i|
-          %li.photo-up-piece
-            = image_tag image.src.url, data: { index: i }
+        = image_tag @images.first.src.url, alt: '商品画像', size: "300x300"
+        %li.photo-up-piece
+          - @item.images.each_with_index do |image, i|
+            = image_tag image.src.url, size:"60x60", class:"item-image-lists", data: { index: i }
       
       %table.item-main-content__table
         %tbody
           %tr
-            %th 出品者
+            %th.text-style 出品者
             %td
               = link_to 'ニックネーム', '＃'
           %tr
             %th カテゴリー
-            %td
-              = @category.parent.parent.name
-              -# = link_to 'メンズ', '#'
-              -# %br/
-              -# %i.fa.fa-angle-right
-              -# = link_to 'ジャケット/アウター', '#'
-              -# %br/
-              -# %i.fa.fa-angle-right
-              -# = link_to 'ノーカラージャケット', '#'
-  
-              -# = link_to category_path(@category.parent.parent.id), class: 'show__contents__detail-table__category1' do
-              -#   = @category.parent.parent.name
-              -# = link_to category_path(@category.parent.id), class: 'show__contents__detail-table__category2' do
-              -#   %i.fa.fa-chevron-right
-              -#   = @category.parent.name
-              -# = link_to category_path(@category.id), class: 'show__contents__detail-table__category3' do
-              -#   %i.fa.fa-chevron-right
-              -#   = @category.name
-
-
-
+            %td.category-names.text-style
+              = @grandchild.parent.parent.name
+              %br
+              %i.fa.fa-angle-right
+              = @grandchild.parent.name
+              %br
+              %i.fa.fa-angle-right
+              = @grandchild.name
 
           -# %tr
           -#   %th ブランド
           -#   %td
           -#     = link_to 'ブランド', '#'
           %tr
-            %th 商品の状態
-            %td 
+            %th.text-style 商品の状態
+            %td.text-style 
               = @item.item_condition.name
           %tr
-            %th 配送料の負担
-            %td 
+            %th.text-style 配送料の負担
+            %td.text-style
               = @item.delivery_fee.name
           %tr
-            %th 配送元地域
-            %td
+            %th.text-style 配送元地域
+            %td.text-style
               = @item.prefecture.name
           %tr
-            %th 発送日の目安
-            %td
+            %th.text-style 発送日の目安
+            %td.text-style
               = @item.delivery_day.name
 
     .item-price-box
