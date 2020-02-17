@@ -1,1 +1,79 @@
--# 未だ担当無し
+-# 奥本
+=render "header"
+
+.main-content
+  .main-content__box
+    .item-name
+      = @item.name
+
+    .item-main-content
+      %ul.item-main-content__photo
+        - @item.images.each_with_index do |image, i|
+          %li.photo-up-piece
+            = image_tag image.src.url, data: { index: i }
+      
+      %table.item-main-content__table
+        %tbody
+          %tr
+            %th 出品者
+            %td
+              = link_to 'ニックネーム', '＃'
+          %tr
+            %th カテゴリー
+            %td
+              = @grandchild.parent.parent.name
+              %br
+              %i.fa.fa-angle-right
+              = @grandchild.parent.name
+              %br
+              %i.fa.fa-angle-right
+              = @grandchild.name
+
+          %tr
+            %th 商品の状態
+            %td 
+              = @item.item_condition.name
+          %tr
+            %th 配送料の負担
+            %td 
+              = @item.delivery_fee.name
+          %tr
+            %th 配送元地域
+            %td
+              = @item.prefecture.name
+          %tr
+            %th 発送日の目安
+            %td
+              = @item.delivery_day.name
+
+    .item-price-box
+      .item-price-box__price
+        = number_to_currency(@item.price, unit: "￥", strip_insignificant_zeros: true)
+      .item-price-box__tax
+        (税込)
+      .item-price-box__shipping-fee
+        送料込み
+    = link_to '購入画面に進む', '#', class:'buy_btn'
+
+    .item-description 
+      .item-description__box
+        = @item.description
+       
+  .main-content__comment
+    .comment__message
+      相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    .comment__box
+      %textarea.comment__box--text{type: "text"}
+      = link_to 'コメントする', '#', class:'coment_btn'
+
+  %ul.main-content__links
+    %li
+      = link_to '#' do
+        %i.fa.fa-angle-left
+        前の商品
+    %li
+      = link_to '#' do
+        後ろの商品
+        %i.fa.fa-angle-right
+
+= render "footer"

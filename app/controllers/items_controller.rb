@@ -44,6 +44,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
+    @grandchild = Category.find(@item.category_id)
+    # @category = Category.find(@item.category_id)
   end
 
   # def update
