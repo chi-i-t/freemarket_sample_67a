@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
 
+  before_action :set_item, except: [:index, :new, :create]
 
   def index
     @items = Item.includes(:images).last(3)
@@ -46,23 +47,30 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
-    @images = @item.images
+    # @item = Item.find(params[:id])
+    # @images = @item.images
     @grandchild = Category.find(@item.category_id)
+
+    @category_parent_array = ["---"]
+    #データベースから、親カテゴリーのみ抽出し、配列化
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+
   end
 
-  # def update
-    # if @item.update(item_params)
-    #   redirect_to root_path
-    # else
-    #   render :edit
-    # end
-  # end
+  def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
 
-  # def destroy
-  #   @item.destroy
-  #   redirect_to root_path
-  # end
+  def destroy
+    @item.destroy
+    redirect_to root_path
+  end
 
 
   private
