@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
     @items = Item.includes(:images).last(3)
@@ -42,6 +42,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @category = Category.find(@item.category_id)
     
   end
 

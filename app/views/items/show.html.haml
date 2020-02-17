@@ -7,8 +7,6 @@
       = @item.name
 
     .item-main-content
-      
-
       %ul.item-main-content__photo
         - @item.images.each_with_index do |image, i|
           %li.photo-up-piece
@@ -23,13 +21,26 @@
           %tr
             %th カテゴリー
             %td
-              = link_to 'メンズ', '#'
-              %br/
-              %i.fa.fa-angle-right
-              = link_to 'ジャケット/アウター', '#'
-              %br/
-              %i.fa.fa-angle-right
-              = link_to 'ノーカラージャケット', '#'
+              = @category.parent.parent.name
+              -# = link_to 'メンズ', '#'
+              -# %br/
+              -# %i.fa.fa-angle-right
+              -# = link_to 'ジャケット/アウター', '#'
+              -# %br/
+              -# %i.fa.fa-angle-right
+              -# = link_to 'ノーカラージャケット', '#'
+  
+              -# = link_to category_path(@category.parent.parent.id), class: 'show__contents__detail-table__category1' do
+              -#   = @category.parent.parent.name
+              -# = link_to category_path(@category.parent.id), class: 'show__contents__detail-table__category2' do
+              -#   %i.fa.fa-chevron-right
+              -#   = @category.parent.name
+              -# = link_to category_path(@category.id), class: 'show__contents__detail-table__category3' do
+              -#   %i.fa.fa-chevron-right
+              -#   = @category.name
+
+
+
 
           -# %tr
           -#   %th ブランド
