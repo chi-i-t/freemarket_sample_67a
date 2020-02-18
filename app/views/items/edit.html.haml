@@ -54,10 +54,45 @@
                     .alert-text 必須
                     .listing-select-wrapper
                       .listing-select-wrapper__box
-                        = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
-                        %i.listing-select-wrapper__box--arrow-down
+                        = f.select :category, options_for_select(@category_parent_array.map{|c|[c, {}]}, @item.category.root.name), {}, {class: 'select', id: 'parent_category---'}
+                        .form_group#children
+                        = f.select :category, options_for_select(@category_child_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.parent.id), {}, {class: 'select', id: 'child_category----'}
+                        .form_group#grandchildren
+                        = f.select :category, options_for_select(@category_grandchild_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.id), {}, {class: 'select', id: 'grandchild_category----'}
+                        = f.text_field :category_id, id: 'grand_child_result_id', type: 'hidden'
 
-                        
+                        -# --------------------- Ajax通信の流れ -----------------------------
+                        -# ユーザーが親カテゴリが変更する
+                        -# JavaScriptのchangeイベントが呼ばれる
+                        -# JavaScriptがサーバーに子カテゴリの一覧を問い合わせる
+                        -# サーバーが子カテゴリの一覧をJSONで返す
+                        -# JavaScriptがサーバーから子カテゴリの一覧を受け取る
+                        -# 子カテゴリセレクトボックスの中身をサーバーから受け取った子カテゴリの一覧で置き換える
+                        -# -----------------------------------------------------------------
+
+                        -# %select{id: "parent",data: {root: @parents.root.id}}
+                        -#   %option{value: 0} ---
+                        -#   - @parents.each do |parent|
+                        -#     %option{value: "#{parent.id}",class: "root"} #{parent.name}
+
+
+                        -# = f.collection_select :category_id, @parent_all, :id, :name, prompt: "---" #親しか表示できない
+                        -# = t.collection_select :category_id, Category.all, :id, :name, prompt: "---" #孫しか表示できない
+
+                        -# = f.collection_select :category_id, @children_all, :id, :name, prompt: "---"
+                        -# ーーー正解ーーー
+                        -# %br
+                        -# = @selected_parent.name
+                        -# %br
+                        -# = @selected_child.name
+                        -# %br
+                        -# = @selected_grandchild.name
+                        -# = f.select :category_id, @grandchild
+                          -# %option{value=category.id, name=category.name
+                        -# = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                        -# %i.listing-select-wrapper__box--arrow-down
+
+
 
               .sell-container__main__inner__form__input2__form-box__group2
                 .sell-container__main__inner__form__input2__form-box__group2--input-title 商品の状態
@@ -131,85 +166,3 @@
               = link_to "キャンセル", root_path, class: "sell-back-btn"
 
   =render "ease-footer"
-
-
-
--# =render "header"
-
--# .main-content
--#   .main-content__box
--#     .item-name.text-style
--#       = @item.name
-
--#     .item-main-content
--#       %ul.item-main-content__photo
--#         = image_tag @images.first.src.url, alt: '商品画像', size: "300x300"
--#         .photo-up-piece
--#           - @item.images.each_with_index do |image, i|
--#             = image_tag image.src.url, size:"60x60", class:"item-image-lists",data: { index: i }
-      
--#       %table.item-main-content__table
--#         %tbody
--#           %tr
--#             %th.text-style 出品者
--#             %td
--#               = link_to 'ニックネーム', '＃'
--#           %tr
--#             %th カテゴリー
--#             %td.category-names.text-style
--#               = @grandchild.parent.parent.name
--#               %br
--#               %i.fa.fa-angle-right
--#               = @grandchild.parent.name
--#               %br
--#               %i.fa.fa-angle-right
--#               = @grandchild.name
-
--#           %tr
--#             %th.text-style 商品の状態
--#             %td.text-style 
--#               = @item.item_condition.name
--#           %tr
--#             %th.text-style 配送料の負担
--#             %td.text-style 
--#               = @item.delivery_fee.name
--#           %tr
--#             %th.text-style 配送元地域
--#             %td.text-style
--#               = @item.prefecture.name
--#           %tr
--#             %th.text-style 発送日の目安
--#             %td.text-style
--#               = @item.delivery_day.name
-
--#     .item-price-box
--#       .item-price-box__price
--#         = number_to_currency(@item.price, unit: "￥", strip_insignificant_zeros: true)
--#       .item-price-box__tax.text-style
--#         (税込)
--#       .item-price-box__shipping-fee.text-style
--#         送料込み
--#     = link_to '購入画面に進む', '#', class:'buy_btn'
-
--#     .item-description 
--#       .item-description__box.text-style
--#         = @item.description
-       
--#   .main-content__comment
--#     .comment__message
--#       相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
--#     .comment__box
--#       %textarea.comment__box--text{type: "text"}
--#       = link_to 'コメントする', '#', class:'coment_btn'
-
--#   %ul.main-content__links
--#     %li
--#       = link_to '#' do
--#         %i.fa.fa-angle-left.text-style
--#         前の商品
--#     %li
--#       = link_to '#' do
--#         後ろの商品
--#         %i.fa.fa-angle-right.text-style
-
--# = render "footer"

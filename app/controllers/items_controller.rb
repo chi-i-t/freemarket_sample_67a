@@ -49,14 +49,24 @@ class ItemsController < ApplicationController
   def edit
     # @item = Item.find(params[:id])
     # @images = @item.images
-    @grandchild = Category.find(@item.category_id)
+    # @selected_grandchild = Category.find(@item.category_id)
+    # @selected_child = @selected_grandchild.parent
+    # @selected_parent = @selected_child.parent
 
-    @category_parent_array = ["---"]
+    @category_parent_array = []
+
     #データベースから、親カテゴリーのみ抽出し、配列化
-    Category.where(ancestry: nil).each do |parent|
+    # Category.where(ancestry: nil).each do |parent| 
+    # リファクタリング rootを使うと一気に親まで辿れる
+    Category.roots.each do |parent| 
       @category_parent_array << parent.name
     end
 
+    # itemに紐づいていいる孫カテゴリーの親である子カテゴリが属している子カテゴリーの一覧を配列で取得
+    @category_child_array = @item.category.parent.parent.children
+
+    # itemに紐づいていいる孫カテゴリーが属している孫カテゴリーの一覧を配列で取得
+    @category_grandchild_array = @item.category.parent.children
   end
 
   def update
