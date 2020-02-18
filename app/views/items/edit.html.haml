@@ -70,24 +70,6 @@
                         -# 子カテゴリセレクトボックスの中身をサーバーから受け取った子カテゴリの一覧で置き換える
                         -# -----------------------------------------------------------------
 
-                        -# %select{id: "parent",data: {root: @parents.root.id}}
-                        -#   %option{value: 0} ---
-                        -#   - @parents.each do |parent|
-                        -#     %option{value: "#{parent.id}",class: "root"} #{parent.name}
-
-
-                        -# = f.collection_select :category_id, @parent_all, :id, :name, prompt: "---" #親しか表示できない
-                        -# = t.collection_select :category_id, Category.all, :id, :name, prompt: "---" #孫しか表示できない
-
-                        -# = f.collection_select :category_id, @children_all, :id, :name, prompt: "---"
-
-                        -# = f.select :category_id, @grandchild
-                          -# %option{value=category.id, name=category.name
-                        -# = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
-                        -# %i.listing-select-wrapper__box--arrow-down
-
-
-
               .sell-container__main__inner__form__input2__form-box__group2
                 .sell-container__main__inner__form__input2__form-box__group2--input-title 商品の状態
                 .alert-text 必須

@@ -1,10 +1,15 @@
 class ItemsController < ApplicationController
 
-  before_action :set_item, except: [:index, :new, :create]
+  before_action :set_item, only: [:update, :show, :edit]
 
+
+  
   def index
     @items = Item.includes(:images).last(3)
   end
+
+
+
 
   def new
     @item = Item.new
@@ -16,6 +21,9 @@ class ItemsController < ApplicationController
       @category_parent_array << parent.name
     end
   end
+
+
+
 
     # 以下全て、formatはjsonのみ
     # 親カテゴリーが選択された後に動くアクション
@@ -30,31 +38,31 @@ class ItemsController < ApplicationController
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
+
+
+
   def create 
     @item = Item.new(item_params)
     @item.status = "0"
     if @item.save
-      flash[:notice] = '商品を出品しました'
-      redirect_to root_path
+      redirect_to root_path, notice: '商品を出品しました'
     else
       render :new
     end
   end
 
+
+
+
   def show
-    @item = Item.find(params[:id])
     @grandchild = Category.find(@item.category_id)
   end
 
+
+
+
   def edit
-    # @item = Item.find(params[:id])
-    # @images = @item.images
-    # @selected_grandchild = Category.find(@item.category_id)
-    # @selected_child = @selected_grandchild.parent
-    # @selected_parent = @selected_child.parent
-
-    @category_parent_array = []
-
+    @category_parent_array = ["---"]
     #データベースから、親カテゴリーのみ抽出し、配列化
     # Category.where(ancestry: nil).each do |parent| 
     # リファクタリング rootを使うと一気に親まで辿れる
@@ -69,17 +77,24 @@ class ItemsController < ApplicationController
     @category_grandchild_array = @item.category.parent.children
   end
 
+
+
+
   def update
     if @item.update(item_params)
-      redirect_to root_path
+      redirect_to root_path, notice: '商品を編集しました'
     else
       render :edit
     end
   end
 
+
+
+
   def destroy
     @item.destroy
     redirect_to root_path
+  
   end
 
 
@@ -87,6 +102,8 @@ class ItemsController < ApplicationController
   # 出品用のストロングパラメータ
   # 値の受け取り制限を設定
   # params.require(モデル名).permit(カラム名, カラム名,...)
+
+
   def item_params
     params.require(:item).permit(:name, :description, :price, :business_result, :category_id, :prefecture_id, :delivery_fee_id, :delivery_way_id, :delivery_day_id, :item_condition_id, :status, images_attributes: [:src, :_destroy, :id])
   end

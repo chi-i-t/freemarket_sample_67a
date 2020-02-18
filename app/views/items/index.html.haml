@@ -1,3 +1,8 @@
+
+.notice.text-style
+  - if flash[:notice]
+    %p= flash[:notice]
+
 = render "header"
 
 .mainImage
