@@ -18,6 +18,6 @@
         %input{ type: "hidden", name: "card_id", value: "" }
         %button.card-delete-btn 削除する
 
-      = link_to "マイページへ戻る", my_pages_path, class:"back-btn"
+      = link_to "マイページへ戻る", my_page_path(current_user), class:"back-btn"
 
 = render "footer"

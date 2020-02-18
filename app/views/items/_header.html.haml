@@ -18,7 +18,7 @@
         .naviLists__Right--login
 
           - if user_signed_in?
-            = link_to my_pages_path, class:"link" do
+            = link_to my_page_path(current_user), class:"link" do
               マイページ
           - else
             = link_to new_user_session_path, class:"link" do
