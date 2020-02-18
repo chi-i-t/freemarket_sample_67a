@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :cards, only: [:new, :create, :edit, :show, :destroy, :update]
   
-  resources :my_pages, only: [:index]
+  resources :my_pages, only: [:show]
 
   resources :items, only: [:index, :show, :new, :edit, :destroy, :create] do
     #Ajaxで動くアクションのルートを作成
