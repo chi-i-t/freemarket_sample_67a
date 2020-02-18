@@ -54,7 +54,7 @@
       = image_tag "logo-white.png", class:"footer__logo--img"
   .footer__copy
     © FURIMA
-= link_to new_item_path, class:"link" do
+= link_to new_item_path, data: {"turbolinks" => false}, class:"link" do
   .purchaseBtn
     .purchaseBtn__text
       出品する

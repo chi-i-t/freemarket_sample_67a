@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   
 
   resources :cards, only: [:new, :create, :edit, :show, :destroy, :update]
-  resources :my_pages, only: [:index]
+  resources :my_pages, only: [:index,]
+  resources :address, only: [:index]
 
   resources :items, only: [:index, :show, :new, :edit, :destroy, :create] do
     #Ajaxで動くアクションのルートを作成
@@ -14,6 +15,5 @@ Rails.application.routes.draw do
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
   end
-
 
 end
