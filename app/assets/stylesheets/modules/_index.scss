@@ -344,10 +344,8 @@
     &__lists{
       margin: 26px 330px;
       width: 780px;
-      &__link {
-        display: flex;
-        justify-content: space-around;
-      }
+      display: flex;
+      justify-content: space-around;
     }
   }
 }

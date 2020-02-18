@@ -54,11 +54,11 @@
                     .alert-text 必須
                     .listing-select-wrapper
                       .listing-select-wrapper__box
-                        = f.select :category, options_for_select(@category_parent_array.map{|c|[c, {}]}, @item.category.root.name), {}, {class: 'select', id: 'parent_category---'}
+                        = f.select :category_id, options_for_select(@category_parent_array.map{|c|[c, {}]}, @item.category.root.name), {}, {class: 'select-default', id: 'parent_category_edit'}
                         .form_group#children
-                        = f.select :category, options_for_select(@category_child_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.parent.id), {}, {class: 'select', id: 'child_category----'}
+                          = f.select :category_id, options_for_select(@category_child_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.parent.id), {}, {class: 'select-default', id: 'child_category_edit'}
                         .form_group#grandchildren
-                        = f.select :category, options_for_select(@category_grandchild_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.id), {}, {class: 'select', id: 'grandchild_category----'}
+                          = f.select :category_id, options_for_select(@category_grandchild_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.id), {}, {class: 'select-default', id: 'grandchild_category_edit'}
                         = f.text_field :category_id, id: 'grand_child_result_id', type: 'hidden'
 
                         -# --------------------- Ajax通信の流れ -----------------------------
@@ -80,13 +80,7 @@
                         -# = t.collection_select :category_id, Category.all, :id, :name, prompt: "---" #孫しか表示できない
 
                         -# = f.collection_select :category_id, @children_all, :id, :name, prompt: "---"
-                        -# ーーー正解ーーー
-                        -# %br
-                        -# = @selected_parent.name
-                        -# %br
-                        -# = @selected_child.name
-                        -# %br
-                        -# = @selected_grandchild.name
+
                         -# = f.select :category_id, @grandchild
                           -# %option{value=category.id, name=category.name
                         -# = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
