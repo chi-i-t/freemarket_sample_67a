@@ -4,7 +4,7 @@ class CardsController < ApplicationController
 
   def new
     card = Card.where(user_id: current_user.id)
-    redirect_to card_path(@card.user_id) if card.exists?
+    redirect_to card_path(current_user) if card.exists?
   end
 
 
@@ -21,7 +21,7 @@ class CardsController < ApplicationController
       ) 
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to card_path(@card.user_id)
+        redirect_to card_path(current_user)
       else
         redirect_to action: "create"
       end
