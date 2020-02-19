@@ -23,6 +23,10 @@ class User < ApplicationRecord
     message: "全角カタカナのみで入力して下さい"
   }
 
+
+  has_many :items
+
   has_one :card
+
 end
 
