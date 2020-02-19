@@ -63,7 +63,6 @@ end
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'haml-rails'
 
@@ -81,13 +80,17 @@ gem 'fog-aws'
 
 gem 'devise'
 
-gem 'ancestry'
 
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 
-gem 'active_hash'
 
+gem 'payjp'
+gem 'dotenv-rails'
+
+gem 'ancestry'
+
+gem 'active_hash'
 
 
 
