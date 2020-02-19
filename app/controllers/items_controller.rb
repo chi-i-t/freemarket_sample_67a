@@ -17,8 +17,8 @@ class ItemsController < ApplicationController
 
     @category_parent_array = ["---"]
     #データベースから、親カテゴリーのみ抽出し、配列化
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
+    Category.roots.pluck(:name).each do |parent|
+      @category_parent_array << parent
     end
   end
 
@@ -66,8 +66,8 @@ class ItemsController < ApplicationController
     #データベースから、親カテゴリーのみ抽出し、配列化
     # Category.where(ancestry: nil).each do |parent| 
     # リファクタリング rootを使うと一気に親まで辿れる
-    Category.roots.each do |parent| 
-      @category_parent_array << parent.name
+    Category.roots.pluck(:name).each do |parent| 
+      @category_parent_array << parent
     end
 
     # itemに紐づいていいる孫カテゴリーの親である子カテゴリが属している子カテゴリーの一覧を配列で取得
