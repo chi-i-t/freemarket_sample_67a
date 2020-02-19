@@ -1,0 +1,41 @@
+=render "items/ease-header"
+
+.main-container
+  .buy-container
+    .buy-container__head 購入内容の確認
+    .buy-container__item
+      .buy-container__item--inner
+        .item-image
+          = image_tag "#", class: "tem-image__photo"
+        .item-detail
+          .item-detail__name ああああ
+          .item-detail__price
+            .item-price ¥3,000
+            .item-fee（税込）送料込み
+    .buy-container__pay
+      .buy-content-inner
+        .buy-price
+          .buy-price__label 支払い金額
+          .buy-price__pay ¥3,000
+    
+    .buy-container__way
+      .buy-content-inner
+        .pay-way
+          .pay-way__label 支払い方法
+          .buy-register-text
+            %i.fas.fa-plus-circle
+            =link_to '登録してください', '#'
+          
+
+    .buy-container__Shipping-address
+      .buy-content-inner
+        .Shipping-address
+          .Shipping-address__label 発送先
+          .buy-register-text
+            %i.fas.fa-plus-circle
+            =link_to '登録してください', '#'
+                  
+    .buy-container__form
+      =link_to '購入する', '#', class:'buy-btn'
+
+=render "items/ease-footer"
