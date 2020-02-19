@@ -59,9 +59,13 @@ class ItemsController < ApplicationController
   # end
 
   def destroy
-    item = Item.find(params[:id])
-    item.destroy
-    redirect_to root_path
+    set_item
+    if @item.user_id == current_user.id
+      @item.destroy
+      redirect_to root_path
+    else
+      redirect_to item_path
+    end
   end
 
 
@@ -74,8 +78,8 @@ class ItemsController < ApplicationController
   end
 
   # 商品編集・削除・詳細表示用
-  # def set_item
-  #   @item = Item.find(params[:id])
-  # end
+  def set_item
+    @item = Item.find(params[:id])
+  end
   
 end
