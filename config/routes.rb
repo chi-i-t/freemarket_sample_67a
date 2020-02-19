@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   
   resources :my_pages, only: [:show]
 
-  resources :items, only: [:index, :show, :new, :edit, :destroy, :create] do
+  resources :items do
     #Ajaxで動くアクションのルートを作成
     collection do
       get 'get_category_children', defaults: { format: 'json' }

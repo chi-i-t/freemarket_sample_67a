@@ -1,3 +1,8 @@
+
+.notice.text-style
+  - if flash[:notice]
+    %p= flash[:notice]
+
 = render "header"
 
 .mainImage
@@ -105,8 +110,7 @@
       .pickupItem__box__head--title
         新規投稿商品
     .pickupItem__box__lists
-      = link_to "#", class:"pickupItem__box__lists__link" do
-        = render @items
+      = render @items
 
 
 = render "items/footer" 

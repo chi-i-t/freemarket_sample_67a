@@ -108,10 +108,11 @@ html, body{
       margin-top: 15px;
       display: flex;
       &__photo{
-        width: 50%;
+        width: 300px;
         height: 400px;
         background-color: #f8f8f8;
         position: relative;
+        margin-right: 20px;
         &--main{
           width: 90%;
           height: 270px;
@@ -161,7 +162,8 @@ html, body{
         font-size: 16px;
       }
       &__shipping-fee{
-        font-size: 10px;
+        font-size: 16px;
+        margin-left: 10px;
       }
     }
     .buy_btn{
