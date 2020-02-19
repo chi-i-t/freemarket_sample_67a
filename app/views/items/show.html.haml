@@ -8,7 +8,7 @@
 
     .item-main-content
       %ul.item-main-content__photo
-        = image_tag @images.first.src.url, alt: '商品画像', size: "300x300"
+        = image_tag @images.first.src.url, alt: '商品画像', size: "300x300" ,class: "item-image-main"
         %li.photo-up-piece
           - @item.images.each_with_index do |image, i|
             = image_tag image.src.url, size:"60x60", class:"item-image-lists", data: { index: i }
@@ -18,7 +18,7 @@
           %tr
             %th.text-style 出品者
             %td
-              = link_to 'ニックネーム', '＃'
+              = @item.user.nickname
           %tr
             %th カテゴリー
             %td.category-names.text-style
@@ -29,11 +29,6 @@
               %br
               %i.fa.fa-angle-right
               = @grandchild.name
-
-          -# %tr
-          -#   %th ブランド
-          -#   %td
-          -#     = link_to 'ブランド', '#'
           %tr
             %th.text-style 商品の状態
             %td.text-style 
@@ -58,7 +53,13 @@
         (税込)
       .item-price-box__shipping-fee
         送料込み
-    = link_to '購入画面に進む', '#', class:'buy_btn'
+      
+    .item-buy-link
+      -if user_signed_in? && current_user.id == @item.user_id
+        = link_to '商品の編集', edit_item_path(@item.id), class:'item-buy-link__btn'
+        = link_to '商品の削除', item_path(@item.id), method: :delete, data: {confirm: '削除してよろしいですか？'} ,class:'item-buy-link__btn--delete'
+      - else
+        = link_to '購入画面に進む', '#', class:'item-buy-link__btn'
 
     .item-description 
       .item-description__box

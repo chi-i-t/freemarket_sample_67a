@@ -1,87 +1,4 @@
 // 高橋さん担当
-.text-style{
-  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-}
-
-.category-names {
-  font-size: 14px;
-  color: #0099e8;
-}
-
-.photo-up-piece{
-  display: flex;
-}
-
-.header{
-  padding-left: 60px;
-  padding-right: 60px;
-  height: 110px;
-  width: auto;
-  &__inner{
-    padding-top: 15px;
-    margin-right: 140px;
-    margin-left: 140px;
-    max-width: 1040px;
-    width: 1040px;
-    height: calc(100% - 15px);
-  }
-}
-
-.main{
-  display: flex;
-  align-items: center;
-  height: 50px;
-  &__icon{
-    margin-right: 30px;
-    &__image{
-      width: 140px; 
-    }
-  }
-  &__searchBox{
-    width: 100%;
-    height: 40px;
-    &--input{
-      height: 34px;
-      padding-left: 5px;
-      width: calc(100% - 55px);
-    }
-    &__submit{
-      background-color: rgb(60, 202, 206);
-      height: 38px;
-      width: 38px;
-      padding: 0;
-      border: 0;
-      &--icon{
-        color: white;
-        font-size: 20px;
-    }
-    }
-
-  }
-}
-
-.naviLists{
-  display: flex;
-  justify-content: space-between;
-  font-size: 14px;
-  height: 32px;
-  margin-top: 10px;
-  &__Left{
-    display: flex;
-    &--category{
-      margin-right: 45px;
-    }
-    &--brand{
-
-    }
-  }
-  &__Right{
-    display: flex;
-    &--login{
-      margin-right: 15px;
-    }
-  }
-}
 
 .main-content{
   width: 100%;
@@ -133,14 +50,25 @@
           }
         }
       }
-      .photo-up-piece {
-        width: 100;
-        height: 200px;
+      
+      .text-style{
+        font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
       }
-        
+      .category-names {
+        font-size: 14px;
+        color: #0099e8;
+      }     
+      .photo-up-piece{
+        display: flex;
+      }
+      .item-image-main{
+        display: inline-block;
+        padding: 2px 30px;
+      }
     
       &__table{
         width: 50%;
+        height: 400px;
         border: 1px solid #f5f5f5;
         th{
           background-color: #f8f8f8;
@@ -170,19 +98,38 @@
         font-size: 10px;
       }
     }
-    .buy_btn{
-      display: inline-block;
-      background: #ea352d;
-      color: #fff;
-      font-size: 24px;
-      margin-top: 16px;
-      height: 60px;
-      width: 80%;
-      margin-left: 10%;
-      line-height: 60px;
-      font-weight: bold;
-      letter-spacing: 0.1em;
-      text-align: center;
+
+    .item-buy-link{
+      width: 100%;
+    
+      &__btn{
+        display: inline-block;
+        background-color: #ea352d;
+        color: #fff;
+        font-size: 24px;
+        margin: 20px 0;
+        height: 60px;
+        width: 80%;
+        margin-left: 10%;
+        line-height: 60px;
+        font-weight: bold;
+        letter-spacing: 0.1em;
+        text-align: center;
+        &--delete{
+          display: inline-block;
+          background-color: #aaaaaa;
+          color: #fff;
+          font-size: 24px;
+          margin-top: 16px;
+          height: 60px;
+          width: 80%;
+          margin-left: 10%;
+          line-height: 60px;
+          font-weight: bold;
+          letter-spacing: 0.1em;
+          text-align: center;
+        }
+      }
     }
 
     .item-description {
@@ -196,8 +143,8 @@
     background-color: #ffffff;
     width: 50%;
     margin: auto;
-    padding: 40px;
     margin-top: 5px;
+    padding: 20px 10px;
     .comment__message{
       background-color: #fff6de;
       font-size: 14px;
@@ -229,7 +176,6 @@
     height: 100px;
     display: flex;
     justify-content: space-between;
-    padding-right: 40px;
     line-height: 50px;
   }
 }
@@ -243,123 +189,5 @@ li{
   list-style: none;
 }
 
-.appBanner{
-  background-image: url(bg-appBanner-pict.jpg);
-  background-size: cover;
-  background-position: center;
-  width: auto;
-  height: 300px;
-  padding: 100px 40px;
-  &__inner{
-    text-align: center;
-    color: #fff;
-    &--title{
-      text-shadow: 0 0 5px rgba(0,0,0,0.4);
-      font-size: 24px;
-      font-weight: bold;
-    }
-    &--text{
-      font-size: 35px;
-      text-shadow: 0 0 5px rgba(0,0,0,0.4);
-    }
-    &--icon{
-      width: 100%;
-      display: flex;
-      text-align: center;
-      justify-content: center;
-      &--apple{
-        width: 135px;
-        height: 40px;
-        margin-top: 24px;
-      }
-      &--google{
-        width: 155px;
-        height: 60px;
-        margin-top: 14px;
-      }
-    }
-  }
-}
-
-.footer{
-  padding: 60px 0;
-  color: #fff;
-  background-color: #272727;
-  text-align: center;
-  width: auto;
-  &__contents{
-    display: flex;
-    justify-content: center;
-    width: 840px;
-    margin: 0 auto;
-    &__box{
-      width: calc(1 / 3 * 100%);
-      margin: 0 2% 0 0;
-      &--head{
-        font-size: 16px;
-        font-weight: bold;
-        margin: 0 0 20px;
-      }
-      &--list{
-        text-decoration: none;
-        color: #fff;
-        line-height: 32px;
-        font-size: 12px;
-      }
-    }
-  }
-  &__logo{
-    &--img{
-      width: 160px;
-      margin: 0 auto;
-      vertical-align: bottom;
-    }
-  }
-  &__copy{
-    font-size: 14px;
-
-  }
-}
-
-.linkFooter{
-  text-decoration: none;
-  color: #fff;
-  &:hover{
-    text-decoration: underline;
-  }
-}
 
 
-.storeIcon--a{
-  width: 135px;
-  height: 40px;
-}
-.storeIcon--g{
-  width: 155px;
-  height: 60px;
-}
-
-.storeLink:hover{
-  opacity: 0.5;
-}
-
-.purchaseBtn{
-  width: 120px;
-  background: #3CCACE;
-  text-align: center;
-  border-radius: 4%;
-  bottom: 32px;
-  right: 32px;
-  position: fixed;
-  padding: 15px;
-  &__text{
-    color: #fff;
-    display: block;
-    font-size: 18px;
-    text-decoration: none;
-    margin-bottom: 5px;
-  }
-  &__img{
-    width: 60%;
-  }
-} 
