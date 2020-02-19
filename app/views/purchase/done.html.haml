@@ -1,1 +1,23 @@
-%h2 購入が完了しました！
+.purchase-completed-container
+  = render "items/ease-header"
+
+  .completed-container
+    .buy-container
+      .buy-container__head 
+        購入が完了しました
+      .buy-container__alert
+        出品者からの発送通知をお待ちください
+
+    .buy-item
+      .buy-item__name
+        = @item.name
+      .buy-item__name__price
+        支払い金額
+        %br
+        = number_to_currency(@item.price, unit: "￥", strip_insignificant_zeros: true)
+        (税込）送料込み
+      .buy-item__buybtn
+        = link_to "戻る", root_path
+        
+
+  = render "items/ease-footer"

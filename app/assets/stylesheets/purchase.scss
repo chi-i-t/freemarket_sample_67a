@@ -1,5 +1,6 @@
+// 購入確認画面
 body{
-  background: #f5f5f5;
+  background-color: #f5f5f5;
 }
 
 .main-container{
@@ -74,6 +75,11 @@ body{
     }
     &__way{
       height: 150px;
+      .pay-way{
+        &__label{
+          padding-bottom: 20px;
+        }
+      }
     }
     &__Shipping-address{
       height: 150px;
@@ -92,6 +98,7 @@ body{
         line-height: 50px;
         font-size: 14px;
         text-align: center;
+        cursor: pointer;
       }
     }
   }
@@ -106,7 +113,42 @@ body{
   align-items: center;
 }
 
+.card-number, .card-date
+{
+  font-size: 14px;
+}
+
 i,a{
   color: #0099e8;
   text-decoration: none;
 }
+
+// 購入完了画面
+.purchase-completed-container{
+  width: 100%;
+  height: 100vh;
+  .completed-container{
+    text-align: center;
+    width: 50%;
+    background-color: #fff;
+    margin: auto;
+    padding: 50px;
+    .buy-container{
+      &__head{
+        font-size: 20px;
+      }
+    }
+  }
+  .buy-item{
+    margin-top: 30px;
+    &__name{
+      margin-top: 20px;
+    }
+    &__buybtn{
+      text-align: center;
+      font-size: 20px;
+      margin-top: 30px;
+    }
+  }
+}
+
