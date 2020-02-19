@@ -54,11 +54,11 @@
                     .alert-text 必須
                     .listing-select-wrapper
                       .listing-select-wrapper__box
-                        = f.select :category_id, options_for_select(@category_parent_array.map{|c|[c, {}]}, @item.category.root.name), {}, {class: 'select-default', id: 'parent_category_edit'}
+                        = f.select :category_id, options_for_select(@category_parent_array.map{|c|[c, {}]}, @item.category.root.name), {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category_edit'}
                         .form_group#children
-                          = f.select :category_id, options_for_select(@category_child_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.parent.id), {}, {class: 'select-default', id: 'child_category_edit'}
+                          = f.select :category_id, options_for_select(@category_child_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.parent.id), {}, {class: 'listing-select-wrapper__box--select', id: 'child_category_edit'}
                         .form_group#grandchildren
-                          = f.select :category_id, options_for_select(@category_grandchild_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.id), {}, {class: 'select-default', id: 'grandchild_category_edit'}
+                          = f.select :category_id, options_for_select(@category_grandchild_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.id), {}, {class: 'listing-select-wrapper__box--select', id: 'grandchild_category_edit'}
                         = f.text_field :category_id, id: 'grand_child_result_id', type: 'hidden'
 
                         -# --------------------- Ajax通信の流れ -----------------------------
