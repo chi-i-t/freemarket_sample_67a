@@ -1,0 +1,55 @@
+.mypage-main__side
+  %nav.mypage-nav
+    %ul.mypage-nav_list
+      %li
+        = link_to '#', class: "link" do
+          .mypage-nav_list_menu
+            出品する
+            = icon('fas', 'chevron-right', class:"icon")
+      %li
+        = link_to '#', class: "link" do
+          .mypage-nav_list_menu
+            出品中
+            = icon('fas', 'chevron-right', class:"icon")
+      %li
+        = link_to '#', class: "link" do
+          .mypage-nav_list_menu
+            取引中
+            = icon('fas', 'chevron-right', class:"icon")
+      %li
+        = link_to '#', class: "link" do
+          .mypage-nav_list_menu
+            売却中
+            = icon('fas', 'chevron-right', class:"icon")
+      %li
+        = link_to '#', class: "link" do
+          .mypage-nav_list_menu
+            購入した商品
+            = icon('fas', 'chevron-right', class:"icon")
+      %li
+        = link_to '#', class: "link" do
+          .mypage-nav_list_menu
+            売上照会
+            = icon('fas', 'chevron-right', class:"icon")
+      %li
+        = link_to '#', class: "link" do
+          .mypage-nav_list_menu
+            届け出先
+            = icon('fas', 'chevron-right', class:"icon")
+      %li
+        = link_to card_path(current_user), data: {"turbolinks" => false}, class: "link" do
+          .mypage-nav_list_menu
+            支払い方法
+            = icon('fas', 'chevron-right', class:"icon")
+      %li
+        = link_to edit_user_registration_path, class: "link" do
+          .mypage-nav_list_menu
+            本人情報
+            = icon('fas', 'chevron-right', class:"icon")
+      %li
+        = link_to destroy_user_session_path, method: :delete, class: "link" do
+          .mypage-nav_list_menu__logout
+            ログアウト
+            
+
+
