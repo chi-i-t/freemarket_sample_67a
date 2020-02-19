@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'purchase/index'
+
+  get 'purchase/done'
+
   devise_for :users
   
   root "items#index"
@@ -15,5 +19,6 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :purchase, only: [:index]
 
 end
