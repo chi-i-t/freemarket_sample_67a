@@ -105,7 +105,7 @@
       .pickupItem__box__head--title
         新規投稿商品
     .pickupItem__box__lists
-      = link_to item_path(@items), class:"pickupItem__box__lists__link" do
+      = link_to "/cards/:id", class:"pickupItem__box__lists__link" do
         = render @items
 
 

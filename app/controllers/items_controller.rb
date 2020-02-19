@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  # before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
     @items = Item.includes(:images).last(3)
@@ -41,7 +41,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
     @images = @item.images
     @grandchild = Category.find(@item.category_id)
     
@@ -59,8 +58,7 @@ class ItemsController < ApplicationController
   # end
 
   def destroy
-    set_item
-    if @item.user_id == current_user.id
+    if @item.user_id == current_user.id && @item.destroy
       @item.destroy
       redirect_to root_path
     else
@@ -77,7 +75,6 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :description, :price, :business_result, :category_id, :prefecture_id, :delivery_fee_id, :delivery_way_id, :delivery_day_id, :item_condition_id, :status, images_attributes: [:src, :_destroy, :id])
   end
 
-  # 商品編集・削除・詳細表示用
   def set_item
     @item = Item.find(params[:id])
   end
