@@ -1,1 +1,144 @@
--# 未だ担当無し
+-# 奥本
+.sell-container
+  =render "ease-header"
+
+  = form_for @item, class:"sell_form" do |f|
+    .sell-container__main
+      .sell-container__main__inner
+        .sell-container__main__inner--head 商品の情報を入力
+        .sell-container__main__inner__form
+          // ---------------- 画像登録部 ---------------- 
+          .sell-container__main__inner__form__upload-box
+            .sell-container__main__inner__form__upload-box--head 出品画像
+            .alert-text 必須 
+            .sell-container__main__inner__form__upload-box--subhead 最大10枚までアップロードできます
+            
+            .sell-container__main__inner__form__upload-box__drop-area{ id:"image-box" }
+
+              #previews
+                - if @item.persisted?
+                  - @item.images.each_with_index do |image, i|
+                    = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+              .upload-images
+                = f.fields_for :images do |image|
+                  .js-file_group{"data-index" => "#{image.index}"}
+                    = image.file_field :src, class: 'js-file'
+                    %br/
+                    %span.js-remove 削除
+                  - if @item.persisted?
+                    = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+                - if @item.persisted?
+                  .js-file_group{"data-index" => "#{@item.images.count}"}
+                    = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
+                    .js-remove 削除
+
+          // ---------------- タイトルと説明入力部 ----------------
+          .sell-container__main__inner__form__input1
+            .sell-container__main__inner__form__input1--title 商品名
+            .alert-text 必須 
+            = f.text_field :name, class: 'sell-container__main__inner__form__input1--title-default', placeholder: '商品名（必須 40文字まで)'
+
+            .sell-container__main__inner__form__input1--desc 商品の説明
+            .alert-text 必須
+            = f.text_area :description, class: 'sell-container__main__inner__form__input1--desc-default', placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。',rows:"5"
+
+          -# // ---------------- 詳細入力部 ----------------
+          .sell-container__main__inner__form__input2
+            .sell-container__main__inner__form__input2--sub-title 商品の詳細
+            .sell-container__main__inner__form__input2__form-box.clearfix
+              .sell-container__main__inner__form__input2__form-box__group1
+
+                .listing-form-box
+                  .listing-product-detail__category
+                    = f.label 'カテゴリー', class: 'sell-container__main__inner__form__input2__form-box__group1--input-title'
+                    .alert-text 必須
+                    .listing-select-wrapper
+                      .listing-select-wrapper__box
+                        = f.select :category_id, options_for_select(@category_parent_array.map{|c|[c, {}]}, @item.category.root.name), {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category_edit'}
+                        .form_group#children
+                          = f.select :category_id, options_for_select(@category_child_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.parent.id), {}, {class: 'listing-select-wrapper__box--select', id: 'child_category_edit'}
+                        .form_group#grandchildren
+                          = f.select :category_id, options_for_select(@category_grandchild_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.id), {}, {class: 'listing-select-wrapper__box--select', id: 'grandchild_category_edit'}
+                        = f.text_field :category_id, id: 'grand_child_result_id', type: 'hidden'
+
+                        -# --------------------- Ajax通信の流れ -----------------------------
+                        -# ユーザーが親カテゴリが変更する
+                        -# JavaScriptのchangeイベントが呼ばれる
+                        -# JavaScriptがサーバーに子カテゴリの一覧を問い合わせる
+                        -# サーバーが子カテゴリの一覧をJSONで返す
+                        -# JavaScriptがサーバーから子カテゴリの一覧を受け取る
+                        -# 子カテゴリセレクトボックスの中身をサーバーから受け取った子カテゴリの一覧で置き換える
+                        -# -----------------------------------------------------------------
+
+              .sell-container__main__inner__form__input2__form-box__group2
+                .sell-container__main__inner__form__input2__form-box__group2--input-title 商品の状態
+                .alert-text 必須
+                = f.collection_select :item_condition_id, ItemCondition.all, :id, :name, prompt: "---"
+
+          -# // ---------------- 配送情報入力部 ---------------- 
+          .sell-container__main__inner__form__input3
+            .sell-container__main__inner__form__input3--sub-title 配送について
+            .form-question ?
+            .sell-container__main__inner__form__input3__form-box.clearfix
+              .sell-container__main__inner__form__input3__form-box__group1
+                .sell-container__main__inner__form__input3__form-box__group1--input-title 配送料の負担
+                .alert-text 必須
+                = f.collection_select :delivery_fee_id, DeliveryFee.all, :id, :name, prompt: "---"
+
+              .sell-container__main__inner__form__input3__form-box__group2
+                .sell-container__main__inner__form__input3__form-box__group2--input-title 発送の方法
+                .alert-text 必須
+                = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :name, prompt: "---"
+
+              .sell-container__main__inner__form__input3__form-box__group2
+                .sell-container__main__inner__form__input3__form-box__group2--input-title 発送元の地域
+                .alert-text 必須
+                = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "---"
+
+              .sell-container__main__inner__form__input3__form-box__group2
+                .sell-container__main__inner__form__input3__form-box__group2--input-title 発送までの日数
+                .alert-text 必須
+                = f.collection_select :delivery_day_id, DeliveryDay.all, :id, :name, prompt: "---"
+
+          -# // ---------------- 販売価格入力部 ---------------- 
+          .sell-container__main__inner__form__input4
+            .sell-container__main__inner__form__input4--sub-title 販売価格(¥300~9,999,999)
+            .form-question ?
+            .sell-container__main__inner__form__input4__form-box.clearfix
+              .sell-container__main__inner__form__input4__form-box__group1
+                .sell-container__main__inner__form__input4__form-box__group1__left
+                  .sell-container__main__inner__form__input4__form-box__group1__left--input-title 価格
+                  .alert-text 必須
+                .sell-container__main__inner__form__input4__form-box__group1__right
+                  = f.number_field :price, class:'input-price', id:"price_calc", placeholder: '例) 300'
+              .sell-container__main__inner__form__input4__form-box__group2
+                .sell-container__main__inner__form__input4__form-box__group2--handling-title 販売手数料(10%)
+                .sell-container__main__inner__form__input4__form-box__group2--handling-cost
+                  .right_bar
+              .sell-container__main__inner__form__input4__form-box__group2
+                .sell-container__main__inner__form__input4__form-box__group2--profit-title 販売利益
+                .sell-container__main__inner__form__input4__form-box__group2--profit
+                  = f.number_field :business_result, style: "display: none", id: "price"
+                  .right_bar_2
+
+
+          .sell-container__main__inner__form__sell-btn-box
+            .sell-container__main__inner__form__sell-btn-box--caution-text
+              = link_to "禁止されている出品", "#", class: "caution-text-a-tag"
+              、
+              = link_to "行為", "#", class: "caution-text-a-tag"
+              を必ずご確認ください。
+              %br
+              またブランド品でシリアルナンバー等がある場合はご記載ください。
+              = link_to "偽ブランドの販売", "#", class: "caution-text-a-tag"
+              は犯罪であり処罰される可能性があります。
+              また、出品をもちまして
+              = link_to "加盟店規約", "#", class: "caution-text-a-tag"
+              に同意したことになります。
+
+            = f.submit "変更する", class:"sell-container__main__inner__form__sell-btn-box__submit-btn"
+
+            .sell-container__main__inner__form__sell-btn-box__back-btn
+              = link_to "キャンセル", root_path, class: "sell-back-btn"
+
+  =render "ease-footer"

@@ -12,6 +12,8 @@
         %li.photo-up-piece
           - @item.images.each_with_index do |image, i|
             = image_tag image.src.url, size:"60x60", class:"item-image-lists", data: { index: i }
+
+       
       
       %table.item-main-content__table
         %tbody

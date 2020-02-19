@@ -1,5 +1,14 @@
 // 白井担当
 
+.notice{
+  font-size: 13px;
+  color: white;
+  font-weight: bold;
+  background-color: #3CCACE;
+  width: 100%;
+  text-align: center;
+}
+
 .header{
   padding-left: 60px;
   padding-right: 60px;
@@ -43,9 +52,8 @@
       &--icon{
         color: white;
         font-size: 20px;
+      }
     }
-    }
-      
   }
 }
 
@@ -60,9 +68,6 @@
     &--category{
       margin-right: 45px;
     }
-    &--brand{
-
-    }
   }
   &__Right{
     display: flex;
@@ -73,8 +78,6 @@
       margin-right: 15px;
     }
   }
-  
-
 }
 
 .mainImage{
@@ -199,7 +202,6 @@
         margin-top: 30px;
         text-align: center;
       }
-        
     }
   }
 }
@@ -344,10 +346,8 @@
     &__lists{
       margin: 26px 330px;
       width: 780px;
-      &__link {
-        display: flex;
-        justify-content: space-around;
-      }
+      display: flex;
+      justify-content: space-around;
     }
   }
 }

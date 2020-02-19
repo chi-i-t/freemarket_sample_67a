@@ -1,14 +1,14 @@
 // トップページの商品一覧表示用のテンプレート
 .listsContent
   .listsContent--img
-    - item.images.each do |image|
-      = image_tag image.src.url, alt: "画像無し",size: "220x150" if item.images.present?
-  .listsContent__body
-    .listsContent__body--name
-      = item.name
-    .listsContent__body--detail
-      .listsContent__body--detail--box
-        .listsContent__body--detail--box--price
-          = item.price
-      .listsContent__body--detail--tax
-        (税込)
+    = link_to item_path(item), class:"link" do
+      = image_tag item.images[0].src.url, alt: "画像無し",size: "220x150" if item.images.present?
+    .listsContent__body
+      .listsContent__body--name
+        = item.name
+      .listsContent__body--detail
+        .listsContent__body--detail--box
+          .listsContent__body--detail--box--price
+            = item.price
+        .listsContent__body--detail--tax
+          (税込)
