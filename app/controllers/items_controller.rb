@@ -4,7 +4,6 @@ class ItemsController < ApplicationController
 
   
   def index
-    # @items = Item.where(buyer_id: nil).includes(:images).last(3)
     @items = Item.all
   end
 
