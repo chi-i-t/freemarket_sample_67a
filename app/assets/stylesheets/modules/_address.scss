@@ -28,7 +28,7 @@
   padding: 2px 4px;
   border-radius: 2px;
   vertical-align: top;
-  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  font-family: $font-family;
 }
 
 .address {
@@ -41,7 +41,7 @@
     &--title-text {
       font-size: 24px;
       color: rgb(51, 51, 51);
-      font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+      font-family: $font-family;
       padding: 8px 24px;
       font-weight: bold;
     }
@@ -58,11 +58,11 @@
         font-weight: 600;
         color: #333333;
         display: inline;
-        font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+        font-family: $font-family;
       }
       &__input-form {
         font-size: 16px;
-        font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+        font-family: $font-family;
         width: calc( 100% - 34px );
         margin: 8px 0 0;
         display: block;

@@ -6,7 +6,7 @@
   padding: 0 40px;
   width: 700px;
   border-style: solid #f5f5f5;
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-family: $font-family;
 }
 
   .show-item-main{
@@ -17,7 +17,7 @@
   }
     
   .show-item-sub {
-    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+    font-family: $font-family;
     display: flex;
     border: 0;
     background: #eee;
