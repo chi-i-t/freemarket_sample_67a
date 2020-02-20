@@ -6,6 +6,7 @@ class CreateItems < ActiveRecord::Migration[5.0]
       t.integer     :price
       t.integer     :business_result
       t.string      :status
+      t.reference   :buyer_id, optional: { to_table: :users }
       t.timestamps
     end
   end
