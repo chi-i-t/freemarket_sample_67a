@@ -1,4 +1,11 @@
 -# 奥本さん担当
+.notice.text-style
+  - if flash[:notice]
+    %p= flash[:notice]
+.alert.text-style
+  - if flash[:alert]
+    %p= flash[:alert]
+
 .sell-container
   =render "ease-header"
 
