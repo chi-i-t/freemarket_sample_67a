@@ -40,7 +40,7 @@ class ItemsController < ApplicationController
   def create 
     @item = Item.new(item_params)
     @item.status = "0"
-    
+
     if @images_array.present? && @item.save
       redirect_to root_path, notice: '商品を出品しました'
     else
@@ -74,7 +74,7 @@ class ItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to root_path, notice: '商品を編集しました'
     else
-      render :edit, alert: '編集できませんでした。必須項目をご確認ください。'
+      redirect_to root_path, alert: '編集できませんでした。必須項目をご確認ください。'
     end
   end
 
@@ -102,5 +102,9 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-  
+
+  # def item_update_params
+  #   params.require(:item).permit(:name, :detail, :category, :price, :status, :state, :city, :delivery, :delivery_time, :fee_payer).merge(user_id: current_user.id)
+  # end
+
 end
