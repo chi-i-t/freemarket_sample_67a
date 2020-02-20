@@ -1,8 +1,11 @@
 class PurchaseController < ApplicationController
+  before_action :authenticate_user!
+
   require 'payjp'
-  before_action :set_card, :set_item
+  before_action :set_card, :set_item, only: [:index, :pay]
 
   def index
+    
     card = Card.where(user_id: current_user.id).first
     if card.blank?
       redirect_to controller: "cards", action: "new"
@@ -23,10 +26,13 @@ class PurchaseController < ApplicationController
       :customer => @card.customer_id, #顧客ID
       :currency => 'jpy', #日本円
     )
+
     redirect_to action: 'done' #完了画面に移動
   end
 
-  def done 
+  def done
+    @item_buyer = Item.find(params[:item_id])
+    @item_buyer.update(buyer_id: current_user.id)
   end
 
   private
