@@ -5,12 +5,12 @@ class PurchaseController < ApplicationController
   before_action :set_card, :set_item, only: [:index, :pay]
 
   def index
-    if card.blank?
+    if @card.blank?
       redirect_to controller: "cards", action: "new"
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
     end
     
     @images = @item.images
