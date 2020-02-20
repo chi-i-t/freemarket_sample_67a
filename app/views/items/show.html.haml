@@ -58,10 +58,10 @@
       
     .item-buy-link
       -if user_signed_in? && current_user.id == @item.user_id
-        = link_to '商品の編集', edit_item_path(@item.id), class:'item-buy-link__btn'
+        = link_to '商品の編集', edit_item_path(@item.id), class:'item-buy-link__btn', data: {"turbolinks" => false}
         = link_to '商品の削除', item_path(@item.id), method: :delete, data: {confirm: '削除してよろしいですか？'} ,class:'item-buy-link__btn--delete'
       - else
-        = link_to '購入画面に進む', item_purchase_index_path(@item.id), class:'item-buy-link__btn'
+        = link_to '購入画面に進む', item_purchase_index_path(@item.id), class:'item-buy-link__btn', data: {"turbolinks" => false}
 
     .item-description 
       .item-description__box
