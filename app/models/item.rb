@@ -7,7 +7,7 @@ class Item < ApplicationRecord
 
   # fields_forメソッドを利用する際に、親モデルの中に書く必要があるメソッド。引数として子モデルの名前を書く。
   # allow_destroy: trueで親のレコードが削除された場合に、関連付いている子のレコードも一緒に削除してくれます
-  accepts_nested_attributes_for :images, allow_destroy: true
+  accepts_nested_attributes_for :images, allow_destroy: true, reject_if: :all_blank
 
   validates :name,               presence: true, length: { maximum: 40 }
   validates :description,        presence: true, length: { maximum: 1000 }
@@ -20,7 +20,7 @@ class Item < ApplicationRecord
   validates :delivery_day_id,    presence: true
   validates :item_condition_id,  presence: true
   validates :status,             presence: true
-
+  validates :images,             presence: true, on: :update # on :updateはupdateアクションの時のみにバリデーション検証が実行されるもの
   
 
   extend ActiveHash::Associations::ActiveRecordExtensions

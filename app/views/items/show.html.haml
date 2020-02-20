@@ -8,7 +8,7 @@
 
     .item-main-content
       %ul.item-main-content__photo
-        = image_tag @images.first.src.url, alt: '商品画像', size: "300x300" ,class: "item-image-main"
+        = image_tag @images.first.src.url, alt: '商品画像', size: "300x300" ,class: "item-image-main" if @images.present?
         %li.photo-up-piece
           - @item.images.each_with_index do |image, i|
             = image_tag image.src.url, size:"60x60", class:"item-image-lists", data: { index: i }
