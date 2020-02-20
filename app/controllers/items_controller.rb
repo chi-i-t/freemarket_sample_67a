@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
 
   
   def index
-    @items = Item.includes(:images).last(3)
+    @items = Item.all
   end
 
 
@@ -20,7 +20,6 @@ class ItemsController < ApplicationController
       @category_parent_array << parent
     end
   end
-
 
 
 
