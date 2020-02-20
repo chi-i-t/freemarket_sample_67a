@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20200220050329) do
     t.integer  "price"
     t.integer  "business_result"
     t.string   "status"
+    t.integer  "buyer_id"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.integer  "delivery_fee_id",                 null: false
@@ -58,7 +59,6 @@ ActiveRecord::Schema.define(version: 20200220050329) do
     t.integer  "item_condition_id",               null: false
     t.integer  "category_id",                     null: false
     t.integer  "user_id"
-    t.integer  "buyer_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id", using: :btree
     t.index ["user_id"], name: "index_items_on_user_id", using: :btree
   end
