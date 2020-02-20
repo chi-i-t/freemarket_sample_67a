@@ -2,6 +2,10 @@
 .notice.text-style
   - if flash[:notice]
     %p= flash[:notice]
+    
+.alert.text-style
+  - if flash[:alert]
+    %p= flash[:alert]
 
 = render "header"
 

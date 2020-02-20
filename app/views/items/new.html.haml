@@ -1,4 +1,11 @@
 -# 奥本さん担当
+.notice.text-style
+  - if flash[:notice]
+    %p= flash[:notice]
+.alert.text-style
+  - if flash[:alert]
+    %p= flash[:alert]
+
 .sell-container
   =render "ease-header"
 
@@ -12,7 +19,6 @@
             .sell-container__main__inner__form__upload-box--head 出品画像
             .alert-text 必須 
             .sell-container__main__inner__form__upload-box--subhead 最大10枚までアップロードできます
-            -# = f.file_field :images ,name: "item[item_images_attributes][][image]",class: 'sell-container__main__inner__form__upload-box__drop-area',id: 'image_box',accept: "image/*",multiple: true,data: {image: 0}
             .sell-container__main__inner__form__upload-box__drop-area{ id:"image-box" }
 
               #previews
@@ -107,9 +113,6 @@
                   .sell-container__main__inner__form__input4__form-box__group1__left--input-title 価格
                   .alert-text 必須
                 .sell-container__main__inner__form__input4__form-box__group1__right
-                  -# 変更前->> %input.input-price{:name => :sample, :placeholder => "例) 300", :type => :text, :value => ""}
-                  -# = f.number_field :price, class: 'input-price', placeholder: '例) 300'
-                  -# %input#price_calc.price_form-box.input-price{placeholder: "例) 300", type: "number"}/
                   = f.number_field :price, class:'input-price', id:"price_calc", placeholder: '例) 300'
               .sell-container__main__inner__form__input4__form-box__group2
                 .sell-container__main__inner__form__input4__form-box__group2--handling-title 販売手数料(10%)
@@ -120,7 +123,6 @@
                 .sell-container__main__inner__form__input4__form-box__group2--profit
                   = f.number_field :business_result, style: "display: none", id: "price"
                   .right_bar_2
-
 
           .sell-container__main__inner__form__sell-btn-box
             .sell-container__main__inner__form__sell-btn-box--caution-text

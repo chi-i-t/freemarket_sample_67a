@@ -1,304 +1,253 @@
 // 奥本さん担当
 .clearfix::after {
-  content: "";
-  clear: both;
-  display: block;
+  content   : "";
+  clear     : both;
+  display   : block;
 }
 select {
-  width: 100%;
-  position: relative;
-  height: 48px;
-  padding: 0 16px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  background: 0;
-  font-size: 16px;
-  line-height: 1.5;
+  width         : 100%;
+  position      : relative;
+  height        : 48px;
+  padding       : 0 16px;
+  border-radius : 4px;
+  border        : 1px solid $input-box-border-color;
+  background    : 0;
+  font-size     : 16px;
+  line-height   : 1.5;
 }
-
-
 .js-remove {
-  font-size: 12px;
-  color: blue;
-  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-  cursor: pointer;
-  display: inline;
+  font-size   : 12px;
+  color       : blue;
+  font-family : $font-family;
+  cursor      : pointer;
+  display     : inline;
 }
-
 .js-file {
-  height: 20px;
-  width: 100px;
+  height : 20px;
+  width  : 100px;
   // opacity: 0; //これでファイルを選択ボタンを透明化できる
 }
 
 .form-question {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: #0099e8;
-  color: #fff;
-  line-height: 14px;
-  font-size: 12px;
-  text-align: center;
+  display          : inline-block;
+  width            : 14px;
+  height           : 14px;
+  border-radius    : 50%;
+  background-color : $base-color-blue;
+  color            : #fff;
+  line-height      : 14px;
+  font-size        : 12px;
+  text-align       : center;
 }
 .alert-text {
-  display: inline;
-  font-size: 12px;
-  font-weight: bold;
-  color: white;
-  background-color: red;
-  margin-left: 8px;
-  padding: 2px 4px;
-  border-radius: 2px;
-  vertical-align: top;
-  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  display          : inline;
+  font-size        : 12px;
+  font-weight      : bold;
+  color            : white;
+  background-color : red;
+  margin-left      : 8px;
+  padding          : 2px 4px;
+  border-radius    : 2px;
+  vertical-align   : top;
+  font-family      : $font-family;
 }
-
 .input-default {
-  display: block;
-  width: 100%;
-  height: 48px;
-  padding: 10px 16px 8px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  background: #fff;
-  line-height: 1.5;
-  font-size: 16px;
-  box-sizing: border-box;
-  margin-top: 8px;
-  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  display       : block;
+  width         : 100%;
+  height        : 48px;
+  padding       : 10px 16px 8px;
+  border-radius : 4px;
+  border        : 1px solid $input-box-border-color;
+  background    : $background-color-white;;
+  line-height   : 1.5;
+  font-size     : 16px;
+  box-sizing    : border-box;
+  margin-top    : 8px;
+  font-family   : $font-family;
 }
 
 .sell-container {
-  padding :0;
-  margin: 0;
-  width: 100vw;
-  background-color: rgb(245, 245, 245);
-  &__header {
-    height: 128px;
-    padding-top: 40px;
-    text-align: center;
+  padding : 0;
+  margin  : 0;
+  width   : 100vw;
+  background-color: $background-color-gray;
+  .sell-header {
+    height      : calc( 128px - 35px);
+    padding-top : 35px;
+    text-align  : center;
     &__link {
       cursor: pointer;
     }
   }
   &__main {
     &__inner {
-      width: 700px;
-      margin: 0 auto;
+      width   : 700px;
+      margin  : 0 auto;
       background-color: white;
       &--head {
-        font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-        padding: 32px 16px;
-        text-align: center;
-        font-size: 22px;
-        color: #333;
-        border-bottom: 1px solid #EEE;
-        font-weight: bold;
+        font-family   : $font-family;
+        padding       : 32px 16px;
+        text-align    : center;
+        font-size     : 22px;
+        color         : $title-font-color;
+        border-bottom : 1px solid $border-color-gray;
+        font-weight   : bold;
       }
       &__form {
         &__upload-box {
-          width: 620px;
-          padding: 40px;
-          border-bottom: 1px solid #EEE;
+          width         : 620px;
+          padding       : 40px;
+          border-bottom : 1px solid $border-color-gray;
           &--head {
-            font-size: 16px;
-            font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-            font-weight: bold;
-            color: #333;
-            display: inline;
+            font-size   : 16px;
+            font-family : $font-family;
+            font-weight : bold;
+            color       : $title-font-color;
+            display     : inline;
           }
           &--subhead {
-            font-size: 14px;
-            color: rgb(51, 51, 51);
-            font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-            margin-top: 8px;
-            margin-bottom: 16px;
+            font-size     : 14px;
+            color         : rgb(51, 51, 51);
+            font-family   : $font-family;
+            margin-top    : 8px;
+            margin-bottom : 16px;
           }
           &__drop-area {
-            width: 620px;
-            background-color: #f5f5f5;
-            height: 162px;
-            border: 1px dashed #ccc;
+            width            : 620px;
+            background-color : #f5f5f5;
+            height           : 162px;
+            border           : 1px dashed $border-color-gray;
             &--text {
-              text-align: center;
-              font-size: 14px;
-              color: rgb(51, 51, 51);
-              font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-              font-weight: bold;
+              text-align  : center;
+              font-size   : 14px;
+              color       : rgb(51, 51, 51);
+              font-family : $font-family;
+              font-weight : bold;
             }
           }
         }
         
         // ---------------------出品画像の登録-------------------------
         &__input1 {
-          padding: 40px;
-          border-bottom: 1px solid #EEE;
+          padding       : 40px;
+          border-bottom : 1px solid $border-color-gray;
           &--title {
-            font-size: 14px;
-            font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-            font-weight: bold;
-            color: #333;
-            display: inline;
+            font-size   : 14px;
+            font-family : $font-family;
+            font-weight : bold;
+            color       : $title-font-color;
+            display     : inline;
           }
           &--title-default {
-            display: block;
-            width: 100%;
-            height: 48px;
-            padding: 10px 16px 8px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            background: #fff;
-            line-height: 1.5;
-            font-size: 16px;
-            box-sizing: border-box;
-            margin-top: 8px;
-            margin-bottom: 40px;
-            font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+            display       : block;
+            width         : 100%;
+            height        : 48px;
+            padding       : 10px 16px 8px;
+            border-radius : 4px;
+            border        : 1px solid $input-box-border-color;
+            background    : $background-color-white;;
+            line-height   : 1.5;
+            font-size     : 16px;
+            box-sizing    : border-box;
+            margin-top    : 8px;
+            margin-bottom : 40px;
+            font-family   : $font-family;
           }
           &--desc {
-            font-size: 14px;
-            font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-            font-weight: bold;
-            color: #333;
-            display: inline;
+            font-size   : 14px;
+            font-family : $font-family;
+            font-weight : bold;
+            color       : $title-font-color;
+            display     : inline;
           }
           &--desc-default {
-            height: 142px;
-            margin: 8px 0 0;
-            display: block;
-            width: 100%;
-            max-width: 100%;
-            min-height: 104px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            background: #fff;
-            font-size: 16px;
-            line-height: 1.5;
-            box-sizing: border-box;
+            height      : 142px;
+            margin      : 8px 0 0;
+            display     : block;
+            width       : 100%;
+            max-width   : 100%;
+            min-height  : 104px;
+            padding     : 10px;
+            border      : 1px solid $input-box-border-color;
+            background  : $background-color-white;;
+            font-size   : 16px;
+            line-height : 1.5;
+            box-sizing  : border-box;
           }
-          .sell-form-box { width: 400px; float: right;}
-          .form-group1 { width: 100%; }
-          .form-group2 { margin-top: 40px; }
         }
 
         // ---------------------商品の詳細-------------------------
         &__input2 {
-          padding: 40px;
-          border-bottom: 1px solid #EEE;
-          display: flex;
-          justify-content: space-between;
+          padding         : 40px;
+          border-bottom   : 1px solid $border-color-gray;
+          display         : flex;
+          justify-content : space-between;
           &--sub-title {
-            font-size: 14px; 
-            display: inline;
-            color: #888;
-            font-weight: bold;
-            font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+            font-size   : 14px; 
+            display     : inline;
+            color       : #888;
+            font-weight : bold;
+            font-family : $font-family;
           }
           &__form-box {
-            width: 400px;
-            height: 100%;
-            float: right;
+            width   : 400px;
+            height  : 100%;
+            float   : right;
             &__group1 {
               &--input-title {
-                font-size: 14px;
-                font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-                font-weight: bold;
-                color: #333;
-                display: inline;
-              }
-              .select-default {
-                width: 100%;
-                position: relative;
-                height: 48px;
-                padding: 0 16px;
-                border-radius: 4px;
-                border: 1px solid #ccc;
-                background: 0;
-                font-size: 16px;
-                line-height: 1.5;
+                font-size   : 14px;
+                font-family : $font-family;
+                font-weight : bold;
+                color       : $title-font-color;
+                display     : inline;
               }
             }
             &__group2 {
-              margin-top: 40px;
+              margin-top : 40px;
               &--input-title {
-                font-size: 14px;
-                font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-                font-weight: bold;
-                color: #333;
-                display: inline;
-              }
-              .select-default {
-                width: 100%;
-                position: relative;
-                height: 48px;
-                padding: 0 16px;
-                border-radius: 4px;
-                border: 1px solid #ccc;
-                background: 0;
-                font-size: 16px;
-                line-height: 1.5;
+                font-size   : 14px;
+                font-family : $font-family;
+                font-weight : bold;
+                color       : $title-font-color;
+                display     : inline;
               }
             }
           }
         }
         // -------------------配送について---------------------------
         &__input3 {
-          padding: 40px;
-          border-bottom: 1px solid #EEE;
-          display: flex;
+          padding       : 40px;
+          border-bottom : 1px solid $border-color-gray;
+          display       : flex;
           justify-content: space-between;
           &--sub-title {
-            font-size: 14px; 
-            display: inline;
-            color: #888;
-            font-weight: bold;
-            font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+            font-size   : 14px; 
+            display     : inline;
+            color       : #888;
+            font-weight : bold;
+            font-family : $font-family;
           }
           &__form-box {
-            width: 400px;
-            height: 100%;
-            float: right;
+            width   : 400px;
+            height  : 100%;
+            float   : right;
             &__group1 {
               &--input-title {
-                font-size: 14px;
-                font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-                font-weight: bold;
-                color: #333;
-                display: inline;
-              }
-              .select-default {
-                width: 100%;
-                position: relative;
-                height: 48px;
-                padding: 0 16px;
-                border-radius: 4px;
-                border: 1px solid #ccc;
-                background: 0;
-                font-size: 16px;
-                line-height: 1.5;
+                font-size   : 14px;
+                font-family : $font-family;
+                font-weight : bold;
+                color       : $title-font-color;
+                display     : inline;
               }
             }
             &__group2 {
-              margin-top: 40px;
+              margin-top : 40px;
               &--input-title {
-                font-size: 14px;
-                font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-                font-weight: bold;
-                color: #333;
-                display: inline;
-              }
-              .select-default {
-                width: 100%;
-                position: relative;
-                height: 48px;
-                padding: 0 16px;
-                border-radius: 4px;
-                border: 1px solid #ccc;
-                background: 0;
-                font-size: 16px;
-                line-height: 1.5;
+                font-size   : 14px;
+                font-family : $font-family;
+                font-weight : bold;
+                color       : $title-font-color;
+                display     : inline;
               }
             }
           }
@@ -306,79 +255,79 @@ select {
 
         // -------------------価格について---------------------------
         &__input4 {
-          padding: 40px;
-          border-bottom: 1px solid #EEE;
-          display: flex;
-          justify-content: space-between;
+          padding         : 40px;
+          border-bottom   : 1px solid $border-color-gray;
+          display         : flex;
+          justify-content : space-between;
           &--sub-title {
-            font-size: 14px; 
-            display: inline;
-            color: #888;
-            font-weight: bold;
-            font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+            font-size   : 14px; 
+            display     : inline;
+            color       : #888;
+            font-weight : bold;
+            font-family : $font-family;
           }
           &__form-box {
-            width: 400px;
+            width : 400px;
             height: 100%;
-            float: right;
+            float : right;
             &__group1 {
-              display: flex;
-              justify-content: space-between;
-              padding-bottom: 24px;
-              border-bottom: 1px solid #CCC;
+              display         : flex;
+              justify-content : space-between;
+              padding-bottom  : 24px;
+              border-bottom   : 1px solid $border-color-gray;
               &__left {
                 padding-top: 15px;
                 &--input-title {
-                  font-size: 14px;
-                  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-                  font-weight: bold;
-                  color: #333;
-                  display: inline;
+                  font-size   : 14px;
+                  font-family : $font-family;
+                  font-weight : bold;
+                  color       : $title-font-color;
+                  display     : inline;
                 }
               }
               &__right {
                 .input-price {
-                  font-size: 16px;
-                  width: 100%;
-                  height: 48px;
-                  border: 1px solid #ccc;
-                  border-radius: 4px;
-                  box-sizing: border-box;
-                  padding: 10px 16px 8px;
-                  text-align: right;
+                  font-size     : 16px;
+                  width         : 100%;
+                  height        : 48px;
+                  border        : 1px solid $input-box-border-color;
+                  border-radius : 4px;
+                  box-sizing    : border-box;
+                  padding       : 10px 16px 8px;
+                  text-align    : right;
                 }
               }
             }
             &__group2 {
-              padding: 24px 0;
-              display: flex;
-              justify-content: space-between;
-              border-bottom: 1px solid #CCC;
+              padding         : 24px 0;
+              display         : flex;
+              justify-content : space-between;
+              border-bottom   : 1px solid $border-color-gray;
               &--input-title {
-                font-size: 14px;
-                font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-                font-weight: bold;
-                color: #333;
-                display: inline;
+                font-size   : 14px;
+                font-family : $font-family;
+                font-weight : bold;
+                color       : $title-font-color;
+                display     : inline;
               }
               &--handling-title {
-                font-size: 14px;
-                font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-                color: #333;
-                display: inline;
+                font-size   : 14px;
+                font-family : $font-family;
+                color       : $title-font-color;
+                display     : inline;
               }
               &--handling-cost {
-                font-size: 14px;
-                color: #333333;
-                border-style: None;
-                text-align: right;
+                font-size     : 14px;
+                color         : $title-font-color;
+                border-style  : None;
+                text-align    : right;
               }
               &--profit-title {
-                font-size: 16px;
-                font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-                font-weight: bold;
-                color: #333;
-                display: inline;
+                font-size   : 16px;
+                font-family : $font-family;
+                font-weight : bold;
+                color       : $title-font-color;
+                display     : inline;
               }
               &--profit {
                 font-size: 16px;
@@ -391,63 +340,64 @@ select {
         &__sell-btn-box{
           padding: 40px;
           &--caution-text {
-            font-size: 14px;
-            color: #333;
-            font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+            font-size   : 14px;
+            color       : $title-font-color;
+            font-family : $font-family;
           }
           .caution-text-a-tag {
-            text-decoration: none;
-            color: #0099e8;
+            text-decoration : none;
+            color           : $base-color-blue;
           }
           &__submit-btn {
-            font-size: 14px;
-            background: #ea352d;
-            border: 1px solid #ea352d;
-            color: #fff;
-            margin: 40px 0 0;
-            width: 100%;
-            line-height: 48px;
-            cursor: pointer;
+            font-size   : 14px;
+            background  : #ea352d;
+            border      : 1px solid #ea352d;
+            color       : #fff;
+            margin      : 40px 0 0;
+            width       : 100%;
+            line-height : 48px;
+            cursor      : pointer;
           }
           &__back-btn {
-            width: 45%;
-            line-height: 48px;
-            margin: 24px auto 0;
-            background: #aaa;
-            border: 1px solid #aaa;
-            text-align: center;
+            width       : 45%;
+            line-height : 48px;
+            margin      : 24px auto 0;
+            background  : #aaa;
+            border      : 1px solid #aaa;
+            text-align  : center;
           }
           .sell-back-btn {
-            font-size: 14px;
-            text-decoration: none;
-            color: #fff;
+            font-size       : 14px;
+            text-decoration : none;
+            color           : #fff;
           }
         }
       }
     }
   }
-  &__footer {
-    height: 220px;
-    width: 100%;
-    text-align: center;
-    padding: 40px 0 40px 0; //上右下左
+  .sell-footer {
+    height      : calc( 220px - 80px );
+    width       : 100%;
+    text-align  : center;
+    padding     : 40px 0 40px 0; //上右下左
     &__focus-area {
       &--atag {
-        font-size: 12px;
-        color: #333333;
-        text-decoration: none;
-        margin-right: 15px;
+        font-size       : 12px;
+        color           : $title-font-color;
+        text-decoration : none;
+        margin-right    : 15px;
+        height: 20px;
       }
       &__logo {
-        cursor: pointer;
+        cursor : pointer;
       }
       &__image {
-        margin-top: 30px;
+        margin-top : 30px;
       }
       &--text {
-        font-size: 13px;
-        font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-        margin-top: 10px;
+        font-size   : 12px;
+        font-family : $font-family;
+        margin-top  : 10px;
       }
     }
   }

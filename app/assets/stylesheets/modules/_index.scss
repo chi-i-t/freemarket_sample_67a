@@ -8,6 +8,14 @@
   width: 100%;
   text-align: center;
 }
+.alert {
+  font-size: 13px;
+  color: white;
+  font-weight: bold;
+  background-color: #ed6d6d;
+  width: 100%;
+  text-align: center;
+}
 
 .header{
   padding-left: 60px;
@@ -355,6 +363,7 @@
 .listsContent{
   width: 220px;
   color: black;
+  padding-right: 30px;
   &--img{
     width: 220px;
     height: 150px;

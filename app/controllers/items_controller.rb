@@ -1,26 +1,25 @@
 class ItemsController < ApplicationController
 
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   
   def index
-    @items = Item.all
+    @items = Item.last(5)
   end
-
-
 
 
   def new
     @item = Item.new
     @item.images.new # Productクラスのインスタンスに関連づけられた、Imageクラスのインスタンスを作成
-
     @category_parent_array = ["---"]
+
     #データベースから、親カテゴリーのみ抽出し、配列化
     Category.roots.pluck(:name).each do |parent|
       @category_parent_array << parent
     end
-  end
 
+  end
 
 
     # 以下全て、formatはjsonのみ
@@ -30,6 +29,7 @@ class ItemsController < ApplicationController
     @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
   end
 
+
    # 子カテゴリーが選択された後に動くアクション
   def get_category_grandchildren
     #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
@@ -37,30 +37,23 @@ class ItemsController < ApplicationController
   end
 
 
-
-
   def create 
     @item = Item.new(item_params)
     @item.status = "0"
-    if @item.save
+    
+    if @images_array.present? && @item.save
       redirect_to root_path, notice: '商品を出品しました'
     else
-      render :new
+      # render :new だとViewのカテゴリ選択のところでエラーが発生する
+      redirect_to "/items/new", alert: '出品に失敗しました。必須項目を確認してください。'
     end
   end
 
 
-
-
   def show
-
     @images = @item.images
     @grandchild = Category.find(@item.category_id)
-    
-
   end
-
-
 
 
   def edit
@@ -77,21 +70,18 @@ class ItemsController < ApplicationController
   end
 
 
-
-
   def update
     if @item.update(item_params)
       redirect_to root_path, notice: '商品を編集しました'
     else
-      render :edit
+      render :edit, alert: '編集できませんでした。必須項目をご確認ください。'
     end
   end
 
 
-
   def destroy
     if @item.user_id == current_user.id && @item.destroy
-      redirect_to root_path
+      redirect_to root_path, notice: '商品を削除しました'
     else
       redirect_to item_path
     end
@@ -105,6 +95,7 @@ class ItemsController < ApplicationController
 
 
   def item_params
+    @images_array = params[:item][:images_attributes]
     params.require(:item).permit(:name, :description, :price, :business_result, :category_id, :prefecture_id, :delivery_fee_id, :delivery_way_id, :delivery_day_id, :item_condition_id, :status, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
