@@ -5,6 +5,9 @@
   .main-content__box
     .item-name
       = @item.name
+      - if @item.buyer_id.present?
+        .item-sold__width
+          SOLD
 
     .item-main-content
       %ul.item-main-content__photo
@@ -60,9 +63,10 @@
       -if user_signed_in? && current_user.id == @item.user_id
         = link_to '商品の編集', edit_item_path(@item.id), class:'item-buy-link__btn', data: {"turbolinks" => false}
         = link_to '商品の削除', item_path(@item.id), method: :delete, data: {confirm: '削除してよろしいですか？'} ,class:'item-buy-link__btn--delete'
-      - else
+      -elsif user_signed_in? && @item.buyer_id == nil
         = link_to '購入画面に進む', item_purchase_index_path(@item.id), class:'item-buy-link__btn', data: {"turbolinks" => false}
-
+      - else
+        = link_to "戻る", root_path, class: 'item-buy-link__btn'
     .item-description 
       .item-description__box
         = @item.description
