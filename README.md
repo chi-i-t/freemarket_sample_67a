@@ -129,4 +129,4 @@ pay.jpで実装
 ### Association
 - belongs_to :user
 
-# hello
+# hello wold
